@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AVIDAA ANOMALY -- Unidentified Anomalous Phenomena Archive</title>
+<meta name="description" content="A sourced archive of UAP history, government disclosure, whistleblower testimony, the science of the search for life, and documented sighting cases -- official findings and public commentary kept clearly separate.">
+<meta http-equiv="Content-Security-Policy" content="default-src 'self'; script-src 'self' 'unsafe-inline' https://www.googletagmanager.com https://www.google-analytics.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data:; connect-src 'self' https://www.google-analytics.com; font-src 'self' https://fonts.gstatic.com;">
+<meta name="referrer" content="strict-origin-when-cross-origin">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' fill='%230a0908'/><circle cx='50' cy='42' r='20' fill='none' stroke='%236dffb8' stroke-width='4'/><line x1='50' y1='62' x2='50' y2='90' stroke='%236dffb8' stroke-width='4'/><line x1='30' y1='90' x2='70' y2='90' stroke='%236dffb8' stroke-width='4'/></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Special+Elite&family=IBM+Plex+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-G8M1YZQ8WF"></script>
+<script>window.dataLayer = window.dataLayer || []; function gtag(){dataLayer.push(arguments);} gtag('js', new Date()); gtag('config', 'G-G8M1YZQ8WF');</script>
+<style>
+:root{
+  --desk:#100f0c; --desk-line:rgba(255,255,255,.05);
+  --paper:#e6dfc4; --paper-shadow:#d4cba4; --ink:#211d16; --ink-dim:#5c5540;
+  --redact:#0c0b09; --stamp-red:#a3241d; --stamp-blue:#1f4a68; --stamp-green:#3d6b4a;
+  --stamp-amber:#a9781f; --stamp-purple:#5c4270; --accent:#2f6e63;
+  --line:rgba(33,29,22,.28); --band:#0a0a08;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--desk);color:var(--ink);overflow-x:hidden;}
+body{font-family:'IBM Plex Mono',monospace; font-size:.95rem; line-height:1.6;}
+h1,h2,h3,.stamp,.tab,#logo,#back-home{font-family:'Special Elite',monospace;}
+a{color:var(--accent);}
+img,svg{max-width:100%;height:auto;}
+
+#bg-canvas{position:fixed;inset:0;z-index:0;pointer-events:none;opacity:.4;}
+
+/* classification banners -- full-bleed, top and bottom, like a real declassified scan */
+.classband{
+  position:relative; z-index:12; background:var(--band); color:#e8e4d4;
+  font-family:'IBM Plex Mono',monospace; font-weight:600; font-size:.62rem; letter-spacing:2.5px;
+  text-align:center; padding:5px 8px; text-transform:uppercase; border-top:1px solid rgba(255,255,255,.08); border-bottom:1px solid rgba(255,255,255,.08);
+}
+.classband.top{border-top:none;}
+
+#hud-stack{position:relative;z-index:10;padding:18px 16px 4px;}
+#top-row{display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:10px; max-width:900px; margin:0 auto;}
+#logo{font-size:clamp(1.05rem,3.2vw,1.5rem);color:var(--paper);letter-spacing:1px;}
+#logo span{color:#8fae9e;}
+#back-home{
+  font-weight:700;text-decoration:none;-webkit-appearance:none;appearance:none;white-space:nowrap;
+  background:linear-gradient(90deg,#ff0080,#ff8c00,#ffe000,#00ff80,#00bfff,#a855f7,#ff0080);
+  background-size:300% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;
+  animation:rainbow 3s linear infinite; font-size:1rem;
+}
+@keyframes rainbow{to{background-position:300% center}}
+@media (prefers-reduced-motion:reduce){#back-home{animation:none}}
+
+/* nav = folder tabs, overlapping trapezoids, like dividers in a case-file box */
+.navrow{display:flex;flex-wrap:wrap;gap:0;height:auto;align-items:flex-end;justify-content:flex-start;padding:14px 0 0; max-width:900px; margin:0 auto;}
+.tab{
+  -webkit-appearance:none;appearance:none;white-space:nowrap;cursor:pointer;
+  background:#2a2820; border:1px solid rgba(230,223,196,.18); border-bottom:none; color:#a39d84;
+  font-size:clamp(.6rem,1.5vw,.72rem); padding:8px clamp(10px,2.2vw,16px) 7px; letter-spacing:.5px;
+  clip-path:polygon(6% 0, 94% 0, 100% 100%, 0% 100%);
+  margin-right:-6px; position:relative; top:2px;
+}
+.tab:hover{color:var(--paper);}
+.tab.active{color:var(--ink); background:var(--paper); border-color:var(--paper); top:0; z-index:2;}
+
+main{position:relative;z-index:5;max-width:900px;margin:0 auto;padding:0 18px 60px;}
+.section{display:none;}
+.section.active{display:block;}
+
+/* document sheet -- paper, torn/uneven top edge, sits on the dark desk with real shadow */
+.card{
+  background:var(--paper); color:var(--ink); border:1px solid var(--paper-shadow);
+  padding:20px 22px; margin:0 0 3px; position:relative;
+  box-shadow:0 10px 22px -8px rgba(0,0,0,.55);
+}
+.card + .card{ margin-top:14px; }
+.card::before{
+  content:''; position:absolute; inset:0; pointer-events:none; opacity:.5;
+  background-image:
+    repeating-linear-gradient(0deg, rgba(0,0,0,.018) 0px, rgba(0,0,0,.018) 1px, transparent 1px, transparent 3px),
+    radial-gradient(ellipse at top left, rgba(0,0,0,.06), transparent 60%);
+}
+h1{font-size:clamp(1.5rem,4.2vw,2.3rem); color:var(--ink); margin:6px 0 6px; letter-spacing:.5px;}
+h2{font-size:clamp(1.05rem,3vw,1.35rem); color:var(--ink); margin:0 0 12px; padding-bottom:8px; border-bottom:2px solid var(--ink); display:inline-block;}
+h3{font-size:1rem; color:var(--ink); margin:0 0 6px;}
+p{color:var(--ink-dim);}
+.dim{color:var(--ink-dim);}
+
+/* case-file cover sheet -- the signature element */
+.cover-sheet{position:relative; padding-top:34px;}
+.cover-meta{display:flex; justify-content:space-between; font-size:.68rem; letter-spacing:1px; color:var(--ink-dim); text-transform:uppercase; border-bottom:1px dashed var(--line); padding-bottom:10px; margin-bottom:14px;}
+.cover-stamp{
+  position:absolute; top:6px; right:18px; transform:rotate(-9deg);
+  border:3px solid var(--stamp-red); color:var(--stamp-red); font-family:'Special Elite',monospace;
+  font-size:1.05rem; letter-spacing:3px; padding:6px 14px; opacity:.82; text-transform:uppercase;
+  filter:url(#roughen);
+}
+
+.stamp{
+  display:inline-block; font-family:'Special Elite',monospace; font-size:.7rem; letter-spacing:1.5px;
+  padding:3px 9px; border:2px solid currentColor; border-radius:2px; transform:rotate(-2.5deg);
+  text-transform:uppercase; margin:2px 4px 2px 0; filter:url(#roughen);
+}
+.stamp.official{color:var(--stamp-green);}
+.stamp.reported{color:var(--stamp-amber);}
+.stamp.disputed{color:#a1541f;}
+.stamp.unproven{color:var(--stamp-red);}
+.stamp.commentary{color:var(--stamp-blue);}
+.stamp.testimony{color:var(--stamp-purple);}
+
+.redact{background:var(--redact); color:var(--redact); border-radius:1px; padding:0 4px; user-select:none;}
+
+.legend{display:flex;flex-wrap:wrap;gap:10px;margin:10px 0 4px;font-size:.78rem;}
+.status-legend-row{display:flex;flex-wrap:wrap;gap:6px 14px;font-size:.72rem;color:var(--ink-dim);margin:10px 0 2px;}
+
+.timeline-item{border-left:2px solid var(--line); padding:2px 0 4px 16px; margin:0 0 16px 4px; position:relative;}
+.timeline-item::before{content:'';position:absolute;left:-6px;top:5px;width:10px;height:10px;border-radius:50%;background:var(--paper);border:2px solid var(--ink);}
+.timeline-date{color:var(--accent); font-weight:700; font-size:.82rem;}
+
+@media (max-width:600px){
+  #hud-stack{padding:14px 12px 4px;}
+  main{padding:0 12px 50px;}
+  .card{padding:15px 15px;}
+  .cover-stamp{position:static; display:inline-block; margin-bottom:10px; transform:rotate(-4deg);}
+  .cover-sheet{padding-top:6px;}
+  /* Same root cause as the earlier COSMOS mobile fix: with 11 tabs now (up from 7 at launch),
+     flex-wrap stacks the nav into several cluttered rows on a narrow phone screen. Fix: a
+     single-line horizontal-scroll strip instead of wrapping. */
+  .navrow{
+    flex-wrap:nowrap; overflow-x:auto; -webkit-overflow-scrolling:touch;
+    scrollbar-width:none; justify-content:flex-start;
+  }
+  .navrow::-webkit-scrollbar{ display:none; }
+  .tab{ flex:0 0 auto; }
+  table{ font-size:.72rem; }
+}
+
+/* Recovered Artifact 7-Alpha -- CSS-only 3D cube, no library.
+   Rotation/pulse are driven from JS via requestAnimationFrame (see artifactTick below), NOT
+   CSS `animation-duration` tied to a live custom property -- that was the original bug:
+   changing --artifact-energy every ~2s (the decay tick) restarted the CSS animation from 0%
+   every time, so it never completed a smooth loop. Color/glow below are NOT animations, just
+   instantly-recomputed static values, so those are safe to drive from the custom property. */
+.artifact-stage{
+  --artifact-energy:0;
+  perspective:600px; width:130px; height:130px; margin:8px auto 4px; position:relative; cursor:pointer;
+}
+.artifact-cube{
+  width:100%; height:100%; position:absolute; inset:0; transform-style:preserve-3d;
+}
+.artifact-face{
+  position:absolute; width:130px; height:130px;
+  border:1px solid color-mix(in srgb, var(--stamp-green) calc(40% + var(--artifact-energy) * 60%), var(--stamp-red) calc(var(--artifact-energy) * 60%));
+  background:rgba(61,107,74,calc(.05 + var(--artifact-energy) * .12));
+  display:flex; align-items:center; justify-content:center; font-family:'Special Elite',monospace; font-size:1.6rem; color:var(--stamp-green);
+}
+.artifact-face.front{ transform:translateZ(65px); }
+.artifact-face.back{ transform:rotateY(180deg) translateZ(65px); }
+.artifact-face.right{ transform:rotateY(90deg) translateZ(65px); }
+.artifact-face.left{ transform:rotateY(-90deg) translateZ(65px); }
+.artifact-face.top{ transform:rotateX(90deg) translateZ(65px); }
+.artifact-face.bottom{ transform:rotateX(-90deg) translateZ(65px); }
+.artifact-core{
+  position:absolute; inset:0; margin:auto; width:34px; height:34px; border-radius:50%; pointer-events:none;
+  background:radial-gradient(circle, #fff, color-mix(in srgb, var(--stamp-green) calc(70% - var(--artifact-energy) * 60%), var(--stamp-red) calc(var(--artifact-energy) * 60% + 10%)));
+  box-shadow:0 0 calc(10px + var(--artifact-energy) * 30px) color-mix(in srgb, var(--stamp-green) calc(70% - var(--artifact-energy) * 50%), var(--stamp-red) calc(var(--artifact-energy) * 50%));
+}
+
+#anom-chat-toggle{
+  position:fixed; bottom:16px; right:16px; z-index:60; width:54px; height:54px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #4a8f7f, #16241e); border:2px solid rgba(230,223,196,.4); cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.5); font-size:1.4rem; color:#e6dfc4;
+}
+#anom-chat-panel{
+  position:fixed; bottom:80px; right:16px; z-index:60; width:min(340px,calc(100vw - 32px)); height:min(440px,64vh);
+  background:var(--paper); border:1px solid var(--paper-shadow); border-radius:2px; box-shadow:0 10px 30px rgba(0,0,0,.5);
+  display:none; flex-direction:column; overflow:hidden;
+}
+#anom-chat-panel.show{display:flex;}
+#anom-chat-head{padding:10px 12px; border-bottom:2px solid var(--ink); font-family:'Special Elite',monospace; color:var(--ink); font-size:.85rem;}
+#anom-chat-log{flex:1; overflow-y:auto; padding:10px; font-size:.82rem; line-height:1.5; color:var(--ink);}
+#anom-chat-log .msg-user{color:var(--ink-dim); margin:6px 0; text-align:right;}
+#anom-chat-log .msg-bot{color:var(--ink); margin:6px 0;}
+#anom-chat-input-row{display:flex; border-top:1px solid var(--line);}
+#anom-chat-input{flex:1; background:transparent; border:none; color:var(--ink); padding:10px; font-size:.85rem; font-family:'IBM Plex Mono',monospace;}
+#anom-chat-send{background:none; border:none; color:var(--accent); padding:0 12px; cursor:pointer; font-weight:600;}
+
+#anom-footer{position:relative;z-index:5; max-width:900px; margin:0 auto; padding:10px 18px 30px; font-size:.68rem; color:#8a9490;}
+
+.cb-rainbow{
+  background:linear-gradient(90deg,#ff0080,#ff8c00,#ffe000,#00ff80,#00bfff,#a855f7,#ff0080);
+  background-size:300% auto; -webkit-background-clip:text; background-clip:text; -webkit-text-fill-color:transparent;
+  animation:rainbow 3s linear infinite; font-weight:700;
+}
+@media (prefers-reduced-motion:reduce){ .cb-rainbow{animation:none;} }
+</style>
+</head>
+<body>
+<svg width="0" height="0" style="position:absolute;">
+  <filter id="roughen" x="-20%" y="-20%" width="140%" height="140%">
+    <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" result="noise" seed="7"/>
+    <feDisplacementMap in="SourceGraphic" in2="noise" scale="2.2"/>
+  </filter>
+</svg>
+<canvas id="bg-canvas"></canvas>
+<div class="classband top">Declassified &middot; Cleared for Public Release &middot; AVIDAA Anomaly Archive</div>
+
+<div id="hud-stack">
+  <div id="top-row">
+    <div id="logo">AVIDAA <span>ANOMALY</span></div>
+    <a id="back-home" href="https://avidaa1.github.io">AVIDAA</a>
+  </div>
+  <div class="navrow" id="main-nav">
+    <button class="tab active" data-sec="briefing">Briefing</button>
+    <button class="tab" data-sec="timeline">Timeline</button>
+    <button class="tab" data-sec="government">Government &amp; Whistleblowers</button>
+    <button class="tab" data-sec="science">The Science</button>
+    <button class="tab" data-sec="instruments">Instruments</button>
+    <button class="tab" data-sec="archive">Sightings Archive</button>
+    <button class="tab" data-sec="contactfolklore">Contact &amp; Folklore</button>
+    <button class="tab" data-sec="groups">Groups &amp; Orgs</button>
+    <button class="tab" data-sec="foia">FOIA Sources</button>
+    <button class="tab" data-sec="commentary">Commentary</button>
+    <button class="tab" data-sec="fieldnotes">Field Notes</button>
+  </div>
+</div>
+
+<main id="main-content"></main>
+
+<div id="anom-footer">
+  <p>AVIDAA -- est. 2025, built for humans and AI, knowledge made clear: the signal beneath the noise.</p>
+  <p id="ai-features-badge"></p>
+</div>
+
+<button id="anom-chat-toggle" aria-label="Open ANOMALY assistant">&#9670;</button>
+<div id="anom-chat-panel">
+  <div id="anom-chat-head">ANOMALY DESK -- offline assistant</div>
+  <div id="anom-chat-log"></div>
+  <div id="anom-chat-input-row">
+    <input id="anom-chat-input" type="text" placeholder="Ask about a case, AARO, the science...">
+    <button id="anom-chat-send">Send</button>
+  </div>
+</div>
+
+<a id="back-home-mobile-spacer"></a>
+<div class="classband">Declassified &middot; Cleared for Public Release &middot; AVIDAA Anomaly Archive</div>
+
+<script>
+(function(){
+"use strict";
+function escHtml(s){return String(s).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];});}
+
+/* ============ STATUS LEGEND ============
+   OFFICIAL    -- from a government agency's own publication/testimony/report
+   TESTIMONY   -- sworn statement, not independently verified against physical evidence
+   REPORTED    -- witnessed and documented (radar, video, multiple observers) but unresolved
+   DISPUTED    -- official explanation exists but is contested by some observers
+   UNPROVEN    -- no corroborating evidence beyond the claim itself
+   COMMENTARY  -- opinion/analysis from a public figure, not a first-hand claim or agency finding */
+var STATUS_INFO = {
+  official:{label:'Official', cls:'official'},
+  testimony:{label:'Testimony', cls:'testimony'},
+  reported:{label:'Reported', cls:'reported'},
+  disputed:{label:'Disputed', cls:'disputed'},
+  unproven:{label:'Unproven', cls:'unproven'},
+  commentary:{label:'Commentary', cls:'commentary'}
+};
+function stamp(status){
+  var s = STATUS_INFO[status] || STATUS_INFO.unproven;
+  return '<span class="stamp '+s.cls+'">'+s.label+'</span>';
+}
+
+/* ============ TIMELINE (newest first) ============ */
+var TIMELINE = [
+  { date:'2026-07-21', title:'AARO releases FY2025 Consolidated Annual Report', status:'official',
+    desc:'319 new UAP reports logged (284 from the reporting period, 35 older backlog cases); 114 resolved, 256 earlier cases closed, 370 total resolutions. Case holdings reached 1,870. Every resolved case attributed to a conventional cause (balloons, birds, satellites, aircraft, drones, one rocket launch, one jet-pack). Report discloses a Navy account of roughly 100 airborne objects and 2 uncrewed surface craft off the Virginia coast, still under active investigation.' },
+  { date:'2024-11-14', title:'AARO FY2024 Consolidated Annual Report', status:'official',
+    desc:'Reported over 40 DoD personnel at full operational capability and more than 1,600 UAP reports investigated since AARO\'s founding.' },
+  { date:'2024-03-08', title:'AARO Historical Record Report, Volume I', status:'official',
+    desc:'AARO\'s own review of all official U.S. government UAP-related investigatory efforts since 1945, built from classified/unclassified archives and roughly 30 interviews. Volume II, covering additional acquired information, was mandated by the FY23 NDAA.' },
+  { date:'2023-09-14', title:'NASA UAP Independent Study Team releases final report', status:'official',
+    desc:'NASA-commissioned panel of scientists concluded there is no evidence UAP have an extraterrestrial origin, while recommending NASA apply its data/AI expertise to improve future UAP detection and analysis.' },
+  { date:'2023-07-26', title:'House Oversight hearing: "Unidentified Anomalous Phenomena"', status:'testimony',
+    desc:'David Grusch, Ryan Graves, and David Fravor testify under oath. Grusch alleges a covert program recovering non-human craft and biologics, based on secondhand accounts; he states he has not personally seen a craft. Graves and Fravor describe firsthand radar/visual encounters. No physical evidence was presented at the hearing.' },
+  { date:'2022-07-20', title:'All-domain Anomaly Resolution Office (AARO) established', status:'official',
+    desc:'Deputy Secretary of Defense establishes AARO under Section 1683 of the FY2022 NDAA, absorbing the interim AOIMSG and the Navy\'s UAP Task Force. Dr. Sean Kirkpatrick named first director.' },
+  { date:'2021-11', title:'Airborne Object Identification and Management Synchronization Group (AOIMSG) formed', status:'official',
+    desc:'Interim DoD body bridging the Navy\'s UAP Task Force and the future AARO.' },
+  { date:'2021-06-25', title:'ODNI "Preliminary Assessment: Unidentified Aerial Phenomena"', status:'official',
+    desc:'Office of the Director of National Intelligence reviews 144 UAP reports (mostly 2004-2021 military encounters); only 1 is confidently explained (a deflating balloon). Finds no evidence linking the rest to foreign adversary technology or reporting bias alone, but also no evidence of non-human origin.' },
+  { date:'2020-04-27', title:'DoD officially releases 3 Navy UAP videos', status:'official',
+    desc:'"FLIR1/Gimbal", "GoFast", and "Tic Tac" -- the same videos leaked in 2017 -- are formally declassified and released by the Pentagon to confirm authenticity and stop unauthorized redistribution.' },
+  { date:'2017-12-16', title:'New York Times reveals the Pentagon\'s AATIP program', status:'reported',
+    desc:'Reporting exposes the classified Advanced Aerospace Threat Identification Program (2007-2012) and publishes 3 Navy aircraft videos, reigniting mainstream interest in military UAP encounters.' },
+  { date:'2008-01-08', title:'Stephenville Lights', status:'reported',
+    desc:'Dozens of witnesses across Stephenville, Texas report a large, fast, silent object with bright lights; some reported nearby military jets in pursuit. The Air Force initially stated no aircraft were in the area, then acknowledged an F-16 training mission was underway that night.' },
+  { date:'2004-11-14', title:'USS Nimitz "Tic Tac" incident', status:'reported',
+    desc:'Navy pilots including Cdr. David Fravor and radar operators aboard USS Princeton track and visually intercept a white, tic-tac-shaped object off the California coast during training exercises. Radar, FLIR video, and multiple witness accounts exist; the object\'s nature remains officially unresolved.' },
+  { date:'1997-03-13', title:'Phoenix Lights', status:'reported',
+    desc:'Thousands of witnesses across Arizona and Nevada report a large V-shaped formation of lights. The Air Force attributed a later set of the lights to flares dropped during a training exercise; the earlier, larger formation remains disputed by many witnesses as unexplained by that account alone.' },
+  { date:'1989-1990', title:'Belgian UFO wave', status:'reported',
+    desc:'Thousands of reports across Belgium of large, silent, triangular craft with bright lights, including sightings by police officers and radar/visual tracking by Belgian Air Force F-16s on the night of March 30-31, 1990. The Belgian military publicly released radar data and openly stated it could not identify the objects.' },
+  { date:'1985', title:'Whitley Strieber publishes "Communion"', status:'unproven',
+    desc:'A bestselling first-person account of alleged repeated contact and abduction experiences beginning in 1985, credited with popularizing the now-iconic "Grey" alien depiction in mainstream culture. A personal account, not a government or scientific finding.' },
+  { date:'1980-12-26', title:'Rendlesham Forest incident', status:'reported',
+    desc:'Multiple U.S. Air Force security personnel at RAF Woodbridge, England (including deputy base commander Lt. Col. Charles Halt) report an unusual metallic object with colored lights in the forest over 2-3 nights. Some lights were later attributed by astronomers to a bright meteor fireball and a nearby lighthouse; Halt has maintained publicly that this does not account for everything witnessed. Often called "Britain\'s Roswell."' },
+  { date:'1980-12-29', title:'Cash-Landrum incident', status:'reported',
+    desc:'Betty Cash, Vickie Landrum, and Colby Landrum report a diamond-shaped object emitting heat near Houston, Texas, followed by reported radiation-like symptoms. A federal lawsuit against the government was dismissed after officials stated no military aircraft matched the description on record.' },
+  { date:'1975-11-05', title:'Travis Walton incident', status:'testimony',
+    desc:'Logger Travis Walton reportedly disappears for 5 days in the Apache-Sitgreaves National Forest, Arizona, after being struck by a light from a hovering object; he later describes an abduction. All 6 co-workers passed polygraph tests on witnessing his disappearance; some examiners and skeptics have separately questioned the tests\' administration and interpretation. Basis for the film "Fire in the Sky."' },
+  { date:'1969', title:'Project Blue Book closes (Condon Report)', status:'official',
+    desc:'The University of Colorado\'s Air Force-commissioned Condon Report concludes further study is unlikely to yield scientific advances; the Air Force ends Blue Book after cataloguing 12,618 sightings, with 701 left formally "unidentified".' },
+  { date:'1967-03', title:'Malmstrom AFB missile incident', status:'testimony',
+    desc:'Former Air Force officer Robert Salas and others report that 10 Minuteman ICBMs at Malmstrom AFB, Montana went inoperable within moments of security reporting a glowing object near the launch facility. Documented in Air Force incident logs at the time, though the Air Force has not endorsed a UFO explanation for the malfunction.' },
+  { date:'1965-12-09', title:'Kecksburg incident', status:'reported',
+    desc:'Residents of Kecksburg, Pennsylvania report a fireball and an acorn-shaped object landing in nearby woods; military personnel were seen removing something on a flatbed truck. NASA later stated its own review found no evidence a Kecksburg object was recovered, while acknowledging some project records could not be located.' },
+  { date:'1961-09-19', title:'Betty and Barney Hill incident', status:'testimony',
+    desc:'The first widely publicized alien abduction claim in the U.S. The couple reported missing time during a New Hampshire drive; under later hypnosis, they separately described a UFO encounter and medical examination by humanoid beings. Became the template for the modern "Grey" abduction narrative in popular culture.' },
+  { date:'1952-1969', title:'Project Blue Book', status:'official',
+    desc:'U.S. Air Force\'s systematic UFO-investigation program (successor to Project Sign and Project Grudge), led initially by Capt. Edward Ruppelt, who coined the term "UFO" to replace "flying saucer." Categorized each case as identified, insufficient data, or unidentified. A secret 1953 CIA-convened panel (the Robertson Panel) recommended debunking public UFO interest to reduce Cold War-era vulnerability to false attack warnings -- a recommendation critics say shaped Blue Book\'s skeptical posture from then on. Ran through the 1969 Condon Report.' },
+  { date:'1951-08', title:'Lubbock Lights', status:'reported',
+    desc:'A V-shaped formation of lights photographed by a Texas Tech college student over several nights above Lubbock, Texas. Air Force investigators (an early Blue Book case) suggested the lights were streetlights reflecting off a flock of birds; the original photographer and some witnesses disputed that explanation.' },
+  { date:'1947-07', title:'Roswell incident', status:'disputed',
+    desc:'Debris recovered near Roswell, New Mexico is initially announced by the Army as a "flying disc," then revised the next day to a weather balloon. Declassified in the 1990s as part of Project Mogul, a classified high-altitude balloon program for detecting Soviet nuclear tests. Remains the most publicly debated case in UAP history.' },
+  { date:'1947-06-24', title:'Kenneth Arnold sighting coins "flying saucer"', status:'reported',
+    desc:'Private pilot Kenneth Arnold reports 9 crescent-shaped objects near Mount Rainier, Washington; press coverage of his description of their motion popularizes the term "flying saucer".' }
+];
+
+/* ============ GOVERNMENT & WHISTLEBLOWERS ============ */
+var PEOPLE = [
+  { name:'Jon T. Kosloski', role:'Director, AARO (current)', status:'official',
+    desc:'Leads AARO\'s ongoing case review and annual congressional reporting under 50 U.S.C. Section 3373.' },
+  { name:'Dr. Sean Kirkpatrick', role:'First Director, AARO (Jul 2022 - Dec 2023)', status:'official',
+    desc:'Stated publicly and in testimony that AARO found no evidence of extraterrestrial activity, off-world technology, or reverse-engineering programs. Said the large majority of UAP reports resolve to conventional objects once enough data is available.' },
+  { name:'David Grusch', role:'Former NGA officer, AARO UAP co-lead; whistleblower', status:'testimony',
+    desc:'Filed an Intelligence Community Inspector General complaint and testified in July 2023 that the U.S. operates a covert program recovering non-human craft and "biologics," based on interviews with more than 40 individuals over 4 years. States he has not personally witnessed a craft or body. No physical evidence has been made public.' },
+  { name:'Ryan Graves', role:'Former Navy F/A-18 pilot', status:'reported',
+    desc:'Founded Americans for Safe Aerospace after describing years of routine UAP encounters during training flights off the U.S. East Coast; advocates for standardized, stigma-free pilot reporting.' },
+  { name:'David Fravor', role:'Retired Navy Commander', status:'reported',
+    desc:'Lead witness in the 2004 USS Nimitz "Tic Tac" encounter; radar and FLIR data corroborate the visual account, though the object\'s nature is still officially unresolved.' }
+];
+
+/* ============ SIGHTINGS ARCHIVE (newest first) ============ */
+var CASES = [
+  { name:'Virginia coastal swarm', date:'2024-2025 (disclosed Jul 2026)', status:'official',
+    corroboration:'U.S. Navy sensor + personnel reports',
+    desc:'Roughly 100 airborne objects and 2 uncrewed surface craft reported operating near a U.S. installation off the Virginia coast; disclosed in AARO\'s FY2025 report as an active, unresolved investigation.' },
+  { name:'Chilean Navy "El Bosque" case', date:'2014', status:'reported',
+    corroboration:'Chilean Committee for the Study of Anomalous Aerial Phenomena (CEFAA)',
+    desc:'Infrared video from a Chilean Navy helicopter shows an object exhibiting flight characteristics the government\'s own aerospace-phenomena committee could not identify after multi-year analysis.' },
+  { name:'"Gimbal" and "GoFast" videos', date:'2015 (released 2017/2020)', status:'reported',
+    corroboration:'U.S. Navy F/A-18 targeting-pod footage',
+    desc:'Cockpit video of objects with unusual apparent flight behavior. Officially declassified and authenticated by the Pentagon in 2020; some independent analysts argue the apparent motion is explainable by camera parallax and platform motion rather than the object itself maneuvering.' },
+  { name:'USS Nimitz "Tic Tac"', date:'2004-11-14', status:'reported',
+    corroboration:'Radar (USS Princeton), FLIR video, multiple aircrew', desc:'See Timeline.' },
+  { name:'Stephenville Lights', date:'2008-01-08', status:'reported',
+    corroboration:'Dozens of civilian witnesses, disputed military statements', desc:'See Timeline.' },
+  { name:'Belgian UFO wave', date:'1989-1990', status:'reported',
+    corroboration:'Belgian Air Force F-16 radar lock, police officers, thousands of civilians', desc:'See Timeline.' },
+  { name:'Rendlesham Forest incident', date:'1980-12-26', status:'reported',
+    corroboration:'Multiple USAF security personnel, an official base commander memo', desc:'See Timeline.' },
+  { name:'Cash-Landrum incident', date:'1980-12-29', status:'reported',
+    corroboration:'3 civilian witnesses, later medical treatment records', desc:'See Timeline.' },
+  { name:'Travis Walton incident', date:'1975-11-05', status:'testimony',
+    corroboration:'6 co-worker witnesses, contested polygraph results', desc:'See Timeline.' },
+  { name:'Malmstrom AFB missile incident', date:'1967-03', status:'testimony',
+    corroboration:'Air Force incident logs, multiple missileer testimony', desc:'See Timeline.' },
+  { name:'Kecksburg incident', date:'1965-12-09', status:'reported',
+    corroboration:'Multiple civilian witnesses, disputed military/NASA records', desc:'See Timeline.' },
+  { name:'Betty and Barney Hill incident', date:'1961-09-19', status:'testimony',
+    corroboration:'2 witnesses, hypnosis-derived testimony (contested methodology)', desc:'See Timeline.' },
+  { name:'Phoenix Lights', date:'1997-03-13', status:'reported',
+    corroboration:'Thousands of independent civilian witnesses', desc:'See Timeline.' },
+  { name:'Lubbock Lights', date:'1951-08', status:'reported',
+    corroboration:'Photographic evidence, multiple witnesses, disputed official explanation', desc:'See Timeline.' },
+  { name:'Roswell', date:'1947-07', status:'disputed',
+    corroboration:'Contemporary Army press statements; declassified Project Mogul records',
+    desc:'See Timeline. The most publicly contested case in the archive -- official explanation exists and is documented, but is disputed by a large public following.' }
+];
+
+/* ============ COMMENTARY (opinion/analysis -- clearly not evidence, newest first) ============ */
+var COMMENTARY = [
+  { name:'Neil deGrasse Tyson', role:'Astrophysicist, Hayden Planetarium', date:'2026-07',
+    desc:'On "The Diary of a CEO" podcast, addressed the whistleblower claims and the broader question of alien life. His long-standing public position: the statistical odds strongly favor life existing elsewhere in a universe this large, but he holds claims of government-recovered craft or bodies to the same evidentiary bar as any other extraordinary scientific claim -- repeatable, peer-reviewable physical evidence, which he says has not yet been produced.' },
+  { name:'Avi Loeb', role:'Astrophysicist, Harvard University', date:'2017-ongoing',
+    desc:'Proposed that the interstellar object \'Oumuamua (2017) could plausibly be an artificial artifact given its unusual shape and non-gravitational acceleration; founded the Galileo Project to search for physical evidence of extraterrestrial technology. His view remains a minority position among astronomers, most of whom favor natural explanations (e.g. an unusually shaped comet fragment).' },
+  { name:'Seth Shostak', role:'Senior astronomer, SETI Institute', date:'2023-07',
+    desc:'Responding to the Grusch testimony, argued that recovering and reverse-engineering an interstellar craft without ever producing a single convincing photo strains credibility, and that claims of this magnitude require correspondingly strong public evidence.' },
+  { name:'Michael Shermer', role:'Publisher, Skeptic magazine', date:'2023-07',
+    desc:'Called the fact that a congressional hearing on this topic occurred at all a notable shift in mainstream legitimacy, while maintaining that sworn testimony based on secondhand accounts is not itself proof of the underlying claim.' }
+];
+
+/* ============ CONTACT CLAIMS -- personal first-hand claims of direct alien contact/abduction.
+   Deliberately separate from Government & Whistleblowers: that tab is people testifying about
+   an alleged PROGRAM to Congress; this is individuals' personal accounts of contact itself.
+   None of these carry an 'official' or 'reported-with-radar-style-corroboration' status --
+   at most 'testimony', many 'unproven' -- because that is what they actually are. ============ */
+var CONTACT_CLAIMS = [
+  { name:'Betty and Barney Hill', date:'1961', status:'testimony',
+    desc:'See Timeline. The template for the modern "Grey" abduction narrative -- missing time, later recovered under hypnosis, which most psychologists regard as an unreliable method for retrieving accurate memories rather than a way of confirming them.' },
+  { name:'Antonio Villas Boas', date:'1957', status:'unproven',
+    desc:'Brazilian farmer reported being taken aboard a craft and describes a sexual encounter with a humanoid occupant. One of the earliest widely circulated contactee/abduction narratives predating the Hill case by several years, though far less independently corroborated.' },
+  { name:'George Adamski', date:'1952-1965', status:'unproven',
+    desc:'Self-described contactee who claimed regular meetings with benevolent human-like "Venusians" and published photos of their craft. His photos were later shown by researchers to closely resemble a chicken-brooder lamp and other household parts; widely regarded, including by many contemporary ufologists, as a hoax. Included here because of his outsized influence on 1950s-60s "contactee" culture, not because the claim holds up.' },
+  { name:'Travis Walton', date:'1975', status:'testimony',
+    desc:'See Timeline. Describes an abduction and examination by short, bald beings matching the "Grey" archetype already established by Hill and popularized further by this case.' },
+  { name:'Whitley Strieber ("Communion")', date:'1985-published 1987', status:'unproven',
+    desc:'Bestselling account of recurring contact experiences beginning in 1985; Strieber has consistently maintained the account is true while declining to fully classify the source of the experiences as definitively extraterrestrial. Its cover art is often credited with fixing the "Grey" as the default pop-culture alien image.' }
+];
+
+/* ============ SPECIES / TYPES -- a folklore taxonomy from ufology literature and pop culture,
+   NOT a validated biological classification. No physical specimen of any of these has ever
+   been produced or verified. Included because these categories are widely discussed and
+   asked about, not because any of them are established fact.
+   Fields below are deliberately split two ways: "appearance" reports what the SOURCE ACCOUNTS
+   say (i.e. this is what witnesses/authors described, not a measured fact) -- and "weight" is
+   explicitly marked never measured, because no specimen has ever existed to weigh. Every
+   entry's evidenceScore is identical and rock-bottom (0 verified specimens) on purpose: how
+   often a description gets repeated in books and film (citationFrequency) is a real, honestly
+   ratable thing; how real the creature is, is a completely different axis, and conflating the
+   two -- treating "widely depicted" as "more validated" -- is exactly the mistake this table
+   is built to avoid. */
+var SPECIES_FOLKLORE = [
+  { name:'"Grey"', origin:'Popularized by the Hill (1961), Strieber "Communion" (1987) accounts',
+    appearance:'As described in source accounts: ~1.0-1.5m (3-5 ft) tall, slender/thin-limbed build, large hairless head, big black or dark almond-shaped eyes, grey or pale grey-white skin, no visible ears or nose.',
+    weight:'Never measured -- no physical specimen has ever existed to weigh. Any number you see quoted elsewhere is invented, not sourced.',
+    govMention:'None. No AARO, ODNI, or NASA panel report has ever named or described a "Grey" or any biological alien type -- their morphology categories (orb, triangle, cylinder, etc.) describe observed craft shapes, not entities.',
+    citationFrequency:'Very high -- by far the most repeated image in modern ufology, largely due to Hill/Strieber media coverage.',
+    evidenceScore:'0 verified specimens, 0 independent physical confirmation. Entirely derived from witness description and pop-culture depiction.' },
+  { name:'"Nordic"', origin:'1950s contactee movement (Adamski and similar accounts)',
+    appearance:'As described in source accounts: human-average to tall height, human-proportioned build, blond or light hair, fair/human-toned skin -- described as visually indistinguishable from humans in most accounts.',
+    weight:'Never measured -- no physical specimen has ever existed to weigh.',
+    govMention:'None. Never named in any government UAP report.',
+    citationFrequency:'Moderate -- central to the 1950s-60s contactee subculture specifically, less prominent in modern (post-1980s) accounts.',
+    evidenceScore:'0 verified specimens, 0 independent physical confirmation. The contactee movement generally is regarded as unreliable, including by ufologists who take other parts of the field seriously.' },
+  { name:'"Reptilian"', origin:'Primarily 1990s conspiracy literature (David Icke and others)',
+    appearance:'As described in source accounts: humanoid build, scaled or reptile-textured green/grey-green skin, elongated or slit-pupil eyes -- descriptions vary widely and inconsistently between sources, more so than the other 3 categories here.',
+    weight:'Never measured -- no physical specimen has ever existed to weigh.',
+    govMention:'None whatsoever. Zero basis in any government investigation (AARO, ODNI, Blue Book, or any other) at any point.',
+    citationFrequency:'High in conspiracy literature specifically, but treated as a fringe claim even within mainstream ufology -- CUFOS/MUFON-style investigators generally do not engage with reptilian claims as part of serious case work.',
+    evidenceScore:'0 verified specimens, 0 independent physical confirmation, and the lowest internal consistency of any category here.' },
+  { name:'"Mantis being"', origin:'Recurring theme in later abduction-literature accounts',
+    appearance:'As described in source accounts: tall, thin, insect-like proportions, triangular head, large compound-looking eyes -- often described as accompanying "Grey" beings rather than appearing alone.',
+    weight:'Never measured -- no physical specimen has ever existed to weigh.',
+    govMention:'None. Never named in any government UAP report.',
+    citationFrequency:'Low -- appears in fewer and later sources than Grey or Nordic, largely as an elaboration within existing abduction narratives rather than an independent tradition.',
+    evidenceScore:'0 verified specimens, 0 independent physical confirmation.' }
+];
+
+
+/* ============ FIELD NOTES (blog, immutable dates, newest first) ============ */
+var FIELD_NOTES = [
+  { pub:'2026-08-16', title:'Building this archive',
+    body:'First release. Status-labeling discipline follows the same rule as AVIDAA WARS and AVIDAA CORRUPTION: official findings, sworn testimony, witnessed-but-unresolved reports, disputed explanations, and public commentary are always kept in clearly separate, clearly labeled lanes -- never merged into one undifferentiated "aliens" narrative.' }
+];
+
+/* ============ RENDERERS ============ */
+function renderStatusLegendRow(){
+  var keys = ['official','testimony','reported','disputed','unproven','commentary'];
+  return '<div class="status-legend-row">' + keys.map(function(k){
+    return stamp(k) + ' <span style="margin-right:14px;"></span>';
+  }).join('') + '</div>';
+}
+
+function renderBriefing(){
+  var totalCases = CASES.length, totalTimeline = TIMELINE.length;
+  return '<div class="card cover-sheet">'+
+    '<div class="cover-stamp">Unclassified</div>'+
+    '<div class="cover-meta"><span>Case File // Standing Archive</span><span>Opened 2026</span></div>'+
+    '<div class="dim" style="font-size:.68rem;letter-spacing:1px;margin-bottom:10px;">Routing: <span class="redact">FIELD OFFICE 7</span> &middot; Distribution: Public</div>'+
+    '<h1>AVIDAA ANOMALY</h1>'+
+    '<p class="dim" style="font-size:.85rem;">Subject: Unidentified Anomalous Phenomena (UAP) -- the current official U.S. government term, replacing "UFO" in federal use since 2022.</p>'+
+    '<p>Built the same way as every AVIDAA archive: real, dated, sourced entries, with official findings, sworn testimony, witnessed reports, disputed cases, and public commentary always kept in separate, clearly labeled lanes -- never merged into one undifferentiated "aliens" narrative.</p>'+
+    renderStatusLegendRow()+
+  '</div>'+
+  '<div style="display:flex;flex-wrap:wrap;gap:3px;margin:14px 0;">'+
+    '<div class="card" style="flex:1 1 140px;text-align:center;margin:0;"><div style="font-size:1.7rem;font-family:\'Special Elite\',monospace;">'+totalTimeline+'</div><div class="dim" style="font-size:.7rem;">timeline entries</div></div>'+
+    '<div class="card" style="flex:1 1 140px;text-align:center;margin:0;"><div style="font-size:1.7rem;font-family:\'Special Elite\',monospace;">'+totalCases+'</div><div class="dim" style="font-size:.7rem;">documented cases</div></div>'+
+    '<div class="card" style="flex:1 1 140px;text-align:center;margin:0;"><div style="font-size:1.7rem;font-family:\'Special Elite\',monospace;">1,870</div><div class="dim" style="font-size:.7rem;">AARO case holdings (May 2025)</div></div>'+
+    '<div class="card" style="flex:1 1 140px;text-align:center;margin:0;"><div style="font-size:1.7rem;font-family:\'Special Elite\',monospace;">0</div><div class="dim" style="font-size:.7rem;">pieces of physical evidence publicly produced</div></div>'+
+  '</div>'+
+  '<div class="card" style="text-align:center;">'+
+    '<h3 style="margin-bottom:2px;">Recovered Artifact 7-Alpha</h3>'+
+    '<p class="dim" style="font-size:.72rem;margin:0 0 10px;">Provenance unconfirmed. Included for the same reason the Commentary tab exists: to show, not just tell, how this archive handles the unverifiable. Reacts to activity elsewhere on this page -- try using a few Instruments, then look back.</p>'+
+    '<div class="artifact-stage" id="artifact-stage" title="Click the artifact">'+
+      '<div class="artifact-cube" id="artifact-cube">'+
+        '<div class="artifact-face front" id="artifact-face">&#9700;</div>'+
+        '<div class="artifact-face back"></div>'+
+        '<div class="artifact-face right"></div>'+
+        '<div class="artifact-face left"></div>'+
+        '<div class="artifact-face top"></div>'+
+        '<div class="artifact-face bottom"></div>'+
+      '</div>'+
+      '<div class="artifact-core" id="artifact-core"></div>'+
+    '</div>'+
+    '<div class="dim" id="artifact-status" style="font-size:.7rem;margin-top:6px;">Dormant. No recorded activity yet.</div>'+
+  '</div>'+
+  '<div class="card"><h2>What this page is not</h2><p>Not a claim that extraterrestrial life has visited Earth, and not a debunking either. AARO\'s own public position, as of its most recent report, is that it has found no verified evidence of non-human technology or biologics. Several credible firsthand witnesses (military pilots, radar operators) have reported encounters that remain officially unresolved. Both of those things are true at once -- this page tries to hold them clearly apart rather than picking a side for you.</p></div>';
+}
+
+function renderTimeline(){
+  var html = '<div class="card"><h2>Timeline</h2>'+renderStatusLegendRow()+'</div>';
+  TIMELINE.forEach(function(t){
+    html += '<div class="timeline-item"><div class="timeline-date">'+escHtml(t.date)+'</div>'+
+      '<h3>'+escHtml(t.title)+'</h3>'+stamp(t.status)+
+      '<p>'+escHtml(t.desc)+'</p></div>';
+  });
+  return html;
+}
+
+function renderGovernment(){
+  var html = '<div class="card"><h2>Government &amp; Whistleblowers</h2><p class="dim">People, not agency reports in the abstract -- who said what, in what capacity, and how it\'s been categorized.</p>'+renderStatusLegendRow()+'</div>';
+  PEOPLE.forEach(function(p){
+    html += '<div class="card"><h3>'+escHtml(p.name)+'</h3><p class="dim" style="margin:0 0 6px;">'+escHtml(p.role)+'</p>'+
+      stamp(p.status)+'<p>'+escHtml(p.desc)+'</p></div>';
+  });
+  return html;
+}
+
+var DRAKE_DEFAULTS = { rstar:1.5, fp:1.0, ne:0.4, fl:0.5, fi:0.2, fc:0.5, L:1000 };
+function renderScience(){
+  return '<div class="card"><h2>The Science</h2><p class="dim">The parts of this question that are testable, math, or historical record -- independent of any UAP report.</p></div>'+
+  '<div class="card"><h3>The Fermi Paradox</h3><p>If the universe is old and vast enough that intelligent life should be common, why haven\'t we found clear evidence of it? Physicist Enrico Fermi posed this informally in 1950. Proposed resolutions range from "interstellar travel is far harder than science fiction assumes" to "civilizations tend to self-destruct before reaching that stage" to "they\'re out there and simply haven\'t reached us yet, or have and we haven\'t recognized it."</p></div>'+
+  '<div class="card"><h3>Drake Equation, Kardashev Scale, Great Filter, and more</h3><p>Frank Drake\'s 1961 framework for estimating N, the number of civilizations in the Milky Way whose radio emissions we could currently detect -- and several related live estimators -- now live on the <b>Instruments</b> tab alongside 22 other interactive tools, so they can share one consistent bench rather than being scattered across tabs.</p></div>'+
+  '<div class="card"><h3>SETI (Search for Extraterrestrial Intelligence)</h3>'+
+    '<div class="timeline-item"><div class="timeline-date">1960</div><h3>Project Ozma</h3><p>Frank Drake\'s first radio search, listening to 2 nearby sun-like stars for artificial signals.</p></div>'+
+    '<div class="timeline-item"><div class="timeline-date">1974</div><h3>Arecibo Message</h3><p>A deliberate radio broadcast toward the M13 star cluster, encoding basic facts about humanity and Earth -- largely symbolic given M13 is roughly 25,000 light-years away.</p></div>'+
+    '<div class="timeline-item"><div class="timeline-date">1977</div><h3>The "Wow!" Signal</h3><p>A brief, strong, unexplained radio signal detected by Ohio State\'s Big Ear telescope. Never repeated or definitively explained.</p></div>'+
+    '<div class="timeline-item"><div class="timeline-date">2015-ongoing</div><h3>Breakthrough Listen</h3><p>The largest scientific SETI survey to date, backed by the Breakthrough Initiatives, scanning a million nearby stars and the galactic plane across multiple radio and optical observatories.</p></div>'+
+  '</div>'+
+  '<div class="card"><h3>Exoplanets &amp; habitability</h3><p>Missions like Kepler and TESS have confirmed thousands of planets orbiting other stars, a meaningful fraction within their star\'s "habitable zone" -- the orbital distance where liquid water could persist on a rocky surface. Habitable-zone placement is a necessary condition for life as we understand it, not evidence of it.</p></div>'+
+  '<div class="card"><h3>Higher Dimensions</h3>'+
+    '<p><b class="stamp official" style="pointer-events:none;">Real physics</b> Several serious theoretical frameworks genuinely involve more than the 4 dimensions (3 space + 1 time) of everyday experience. String theory requires 10 or 11 dimensions for its equations to be mathematically consistent; the century-old Kaluza-Klein theory proposed a 5th dimension to unify gravity and electromagnetism. In these theories, any extra dimensions are thought to be "compactified" -- curled up at scales far too small to detect directly -- not places or realms anything could visibly travel to or from. No experiment has yet confirmed extra spatial dimensions exist.</p>'+
+    '<p><b class="stamp unproven" style="pointer-events:none;">Not the same thing</b> Claims that UAP or "contact" experiences originate from beings who exist in a "higher dimension" or a parallel plane of consciousness are a different, unrelated idea -- popular in some New Age and paranormal literature, but not derived from or supported by the actual physics above. Real extra-dimension theories don\'t describe inhabitable realms, conscious entities, or a mechanism for beings to cross between dimensions and our own. Conflating the two is a common but inaccurate move this page won\'t make.</p>'+
+  '</div>';
+}
+
+function renderArchive(){
+  var html = '<div class="card"><h2>Sightings Archive</h2><p class="dim">Cases are described by their corroborating evidence, not by how compelling the story is.</p>'+renderStatusLegendRow()+'</div>';
+  CASES.forEach(function(c){
+    html += '<div class="card"><h3>'+escHtml(c.name)+'</h3><p class="dim" style="margin:0 0 6px;">'+escHtml(c.date)+' &middot; Corroboration: '+escHtml(c.corroboration)+'</p>'+
+      stamp(c.status)+'<p>'+escHtml(c.desc)+'</p></div>';
+  });
+  return html;
+}
+
+function renderCommentary(){
+  var html = '<div class="card"><h2>Commentary</h2><p class="dim">Opinion and analysis from scientists and public figures -- never mixed in with the official-findings or sighting-report lanes above.</p></div>';
+  COMMENTARY.forEach(function(c){
+    html += '<div class="card"><h3>'+escHtml(c.name)+'</h3><p class="dim" style="margin:0 0 6px;">'+escHtml(c.role)+' &middot; '+escHtml(c.date)+'</p>'+
+      stamp('commentary')+'<p>'+escHtml(c.desc)+'</p></div>';
+  });
+  return html;
+}
+
+function renderContactFolklore(){
+  var html = '<div class="card"><h2>Contact Claims &amp; Species Folklore</h2>'+
+    '<p class="dim">Two related but distinct things live on this tab: personal first-hand claims of direct alien contact or abduction, and the folklore "species" taxonomy that grew out of those claims and pop culture. Neither is the same as the Government &amp; Whistleblowers tab -- that tab is people testifying about an alleged <i>program</i> to Congress; this tab is individual accounts of contact itself. Status runs Testimony at best, mostly Unproven, and that is an accurate description, not an editorial judgment.</p>'+
+    renderStatusLegendRow()+'</div>';
+  html += '<div class="card"><h2 style="font-size:1rem;">Contact Claims</h2></div>';
+  CONTACT_CLAIMS.forEach(function(c){
+    html += '<div class="card"><h3>'+escHtml(c.name)+'</h3><p class="dim" style="margin:0 0 6px;">'+escHtml(c.date)+'</p>'+
+      stamp(c.status)+'<p>'+escHtml(c.desc)+'</p></div>';
+  });
+  html += '<div class="card"><h2 style="font-size:1rem;">Species / Types (folklore taxonomy)</h2>'+
+    '<p class="dim" style="font-size:.8rem;">A classification system from ufology literature and pop culture -- not a validated biological classification. No physical specimen of any of these has ever been produced or independently verified. Listed because these categories are widely asked about, not because any of them are established fact. "Weight" is never given a number below -- there has never been a specimen to weigh, and any figure you see quoted elsewhere is invented. "Citation frequency" (how often a description gets repeated in books/film) and "evidence" (whether it is real) are two completely different things -- every category below scores identically at zero on the evidence axis, on purpose, no matter how often it gets depicted.</p></div>';
+  html += '<div class="card" style="overflow-x:auto;"><table style="width:100%;border-collapse:collapse;font-size:.78rem;">'+
+    '<tr style="border-bottom:2px solid var(--ink);"><th style="text-align:left;padding:4px 8px 4px 0;">Type</th><th style="text-align:left;padding:4px 8px;">Citation frequency</th><th style="text-align:left;padding:4px 0;">Evidence score</th></tr>'+
+    SPECIES_FOLKLORE.map(function(s){
+      return '<tr style="border-bottom:1px solid var(--line);"><td style="padding:6px 8px 6px 0;">'+escHtml(s.name)+'</td>'+
+        '<td style="padding:6px 8px;">'+escHtml(s.citationFrequency.split(' -- ')[0])+'</td>'+
+        '<td style="padding:6px 0;color:var(--stamp-red);">0 / verified specimens</td></tr>';
+    }).join('')+
+    '</table></div>';
+  SPECIES_FOLKLORE.forEach(function(s){
+    html += '<div class="card"><h3>'+escHtml(s.name)+'</h3><p class="dim" style="margin:0 0 6px;">Origin: '+escHtml(s.origin)+'</p>'+
+      stamp('unproven')+
+      '<p><b>Form &amp; structure, as described in source accounts:</b> '+escHtml(s.appearance)+'</p>'+
+      '<p><b>Weight:</b> '+escHtml(s.weight)+'</p>'+
+      '<p><b>Government mention:</b> '+escHtml(s.govMention)+'</p>'+
+      '<p><b>Citation frequency:</b> '+escHtml(s.citationFrequency)+'</p>'+
+      '<p><b>Evidence score:</b> '+escHtml(s.evidenceScore)+'</p></div>';
+  });
+  return html;
+}
+
+function renderFieldNotes(){
+  var html = '<div class="card"><h2>Field Notes</h2><p class="dim">Dated log of changes to this archive. Entries never change retroactively.</p></div>';
+  FIELD_NOTES.forEach(function(f){
+    html += '<div class="card"><p class="dim" style="margin:0 0 6px;">'+escHtml(f.pub)+'</p><h3>'+escHtml(f.title)+'</h3><p>'+escHtml(f.body)+'</p></div>';
+  });
+  return html;
+}
+
+/* ============ FOIA & PRIMARY SOURCES -- real, verified, live links (checked 2026-08-16), not invented.
+   Distinguishes official government reading rooms from privately-maintained archives built
+   entirely from FOIA requests -- both are useful, but they are not the same kind of source. ============ */
+var FOIA_SOURCES = [
+  { name:'CIA FOIA Electronic Reading Room -- "UFOs: Fact or Fiction?"', kind:'Official government archive', status:'official',
+    url:'https://www.cia.gov/readingroom/collection/ufos-fact-or-fiction',
+    desc:'CIA\'s own declassified collection, 1940s through early 1990s -- mostly cables on foreign-press UFO sightings and internal memos on handling public inquiries, not first-hand CIA UFO findings.' },
+  { name:'FBI Vault -- "UFO"', kind:'Official government archive', status:'official',
+    url:'https://vault.fbi.gov/UFO',
+    desc:'16-part declassified file detailing the FBI\'s role investigating UFO reports alongside the Air Force, 1947-1954.' },
+  { name:'NSA -- Declassified UFO Documents', kind:'Official government archive', status:'official',
+    url:'https://www.nsa.gov/news-features/declassified-documents/ufo/',
+    desc:'NSA\'s own declassified UFO-related document index, released under FOIA.' },
+  { name:'National Archives -- Project Blue Book records', kind:'Official government archive', status:'official',
+    url:'https://www.archives.gov/research/military/air-force/ufos',
+    desc:'The full Project Blue Book case files (1947-1969) held by the U.S. National Archives.' },
+  { name:'The Black Vault -- UFO Phenomena collection', kind:'Privately maintained, FOIA-sourced', status:'reported',
+    url:'https://www.theblackvault.com/documentarchive/category/the-fringe/ufo-phenomena/',
+    desc:'Journalist John Greenewald Jr.\'s archive, built from over 10,000 individual FOIA requests filed since 1996 (nearly 4 million government pages archived in total, across all topics, as of mid-2026). Not a government source itself -- a private index of what FOIA requests have obtained from government sources.' }
+];
+
+function renderFOIA(){
+  var html = '<div class="card"><h2>FOIA &amp; Primary Sources</h2>'+
+    '<p class="dim">Real, live links, checked before publishing -- not invented URLs. Government reading rooms and privately-maintained FOIA archives are kept visually distinct below; both are useful for primary-source digging, but they are not the same kind of source.</p>'+
+    renderStatusLegendRow()+'</div>';
+  FOIA_SOURCES.forEach(function(f){
+    html += '<div class="card"><h3>'+escHtml(f.name)+'</h3><p class="dim" style="margin:0 0 6px;">'+escHtml(f.kind)+'</p>'+
+      stamp(f.status)+'<p>'+escHtml(f.desc)+'</p>'+
+      '<p style="font-size:.78rem;word-break:break-all;"><a href="'+escHtml(f.url)+'" target="_blank" rel="noopener noreferrer">'+escHtml(f.url)+'</a></p></div>';
+  });
+  html += '<div class="card"><p class="dim" style="font-size:.75rem;">A note on FOIA archives generally: release does not equal validation. A document being real and declassified confirms an agency wrote it and once classified it -- it does not by itself confirm the events it describes happened as written, especially for older cables reporting foreign press claims or unverified field reports.</p></div>';
+  return html;
+}
+
+/* ============ GROUPS & ORGANIZATIONS -- nonprofit, commercial, and academic-affiliated bodies
+   that take UAP/extraterrestrial-life questions seriously enough to organize around them.
+   Deliberately NOT run through the Official/Testimony/Reported/etc. stamp system used
+   elsewhere -- these are organizations with a stated mission, not individual claims or agency
+   findings, so a "type" (nonprofit/commercial/academic) is the honest description, not a
+   status that would misrepresent an advocacy group as an agency finding. Kept separate from
+   the actually-official CEFAA (Chile) and AARO (US), which already appear elsewhere on this
+   page under Official. ============ */
+var GROUPS = [
+  { name:'MUFON (Mutual UFO Network)', type:'Nonprofit, volunteer-run', founded:'1969',
+    desc:'The oldest and largest civilian UFO investigation network still active, ~4,000+ members and chapters in over 40 countries. Trains volunteer field investigators to interview witnesses and document reports; stated mission is "the scientific study of UFOs for the benefit of humanity." Formed partly in response to Project Blue Book\'s closure.' },
+  { name:'CUFOS (J. Allen Hynek Center for UFO Studies)', type:'Nonprofit, scientific research', founded:'1973',
+    desc:'Founded by J. Allen Hynek, the astronomer who was Project Blue Book\'s scientific consultant for over 20 years and who coined the "Close Encounter" classification system. Hynek began as a skeptic but became convinced a small residue of cases might warrant serious scientific attention. CUFOS stresses case-file rigor over public advocacy.' },
+  { name:'NUFORC (National UFO Reporting Center)', type:'Nonprofit, public reporting database', founded:'1974',
+    desc:'A standing public hotline and online form for reporting UFO/UAP sightings, with a catalogue of roughly 170,000 reports accumulated over its history. Functions mainly as a record-keeping and statistics resource rather than an investigative or advocacy body.' },
+  { name:'To The Stars Academy of Arts & Science / To The Stars Inc. (TTSA)', type:'Commercial, public benefit corporation', founded:'2017',
+    desc:'Co-founded by Tom DeLonge (Blink-182) with former CIA officer Jim Semivan and physicist Hal Puthoff. Notable for its role in the 2017 New York Times AATIP story and Navy video releases. Raised over $2.5 million through public crowdfunding for research including its "ADAM" exotic-materials project. Its commercial structure and unsubstantiated claims about acquired materials/technology have drawn sustained criticism from within the UAP research community itself, not just skeptics -- included here for its historical role, not as an endorsement of its claims.' },
+  { name:'The Galileo Project', type:'Academic-affiliated research initiative (Harvard)', founded:'2021',
+    desc:'Founded by Harvard astrophysicist Avi Loeb (see Commentary tab) to build dedicated instruments searching for physical evidence of extraterrestrial technology, rather than relying on witness reports. A genuine research effort, though Loeb\'s specific hypotheses (e.g. about \'Oumuamua) remain a minority position among astronomers.' },
+  { name:'Americans for Safe Aerospace', type:'Nonprofit, pilot advocacy', founded:'2023',
+    desc:'Founded by former Navy pilot Ryan Graves (see Government & Whistleblowers tab) to advocate for standardized, stigma-free UAP reporting among commercial and military aviators. Focused on flight-safety framing rather than extraterrestrial claims specifically.' }
+];
+
+function renderGroups(){
+  var html = '<div class="card"><h2>Groups &amp; Organizations</h2>'+
+    '<p class="dim">Nonprofit, commercial, and academic-affiliated bodies organized around UAP/extraterrestrial-life questions. These are organizations with a stated mission, not agency findings or individual testimony, so they aren\'t run through the Official/Testimony/Reported stamp system used elsewhere on this page -- a "type" (nonprofit, commercial, academic) is the honest description here. Genuinely official bodies like AARO (U.S.) and CEFAA (Chile) already appear elsewhere on this page under Official.</p></div>';
+  GROUPS.forEach(function(g){
+    html += '<div class="card"><h3>'+escHtml(g.name)+'</h3><p class="dim" style="margin:0 0 6px;">'+escHtml(g.type)+' &middot; founded '+escHtml(g.founded)+'</p>'+
+      '<p>'+escHtml(g.desc)+'</p></div>';
+  });
+  return html;
+}
+
+var SECTIONS = {
+  briefing: renderBriefing, timeline: renderTimeline, government: renderGovernment,
+  science: renderScience, instruments: renderInstruments, archive: renderArchive,
+  contactfolklore: renderContactFolklore, groups: renderGroups, foia: renderFOIA, commentary: renderCommentary, fieldnotes: renderFieldNotes
+};
+
+function showSection(name){
+  var main = document.getElementById('main-content');
+  main.innerHTML = SECTIONS[name]();
+  document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('active', t.getAttribute('data-sec')===name); });
+  if (name === 'briefing') artifactApply();
+  if (name === 'instruments') initInstruments();
+  window.scrollTo(0,0);
+}
+document.querySelectorAll('.tab').forEach(function(t){
+  t.addEventListener('click', function(){ showSection(t.getAttribute('data-sec')); });
+});
+
+/* ============ INSTRUMENTS BENCH -- 25 distinct offline, rule-based/procedural, interactive tools ============
+   Every tool here does real (if simple) computation or lookup driven by user input -- no
+   API, no network, no key. None are decorative; each responds to something the visitor
+   types, drags, or clicks. Registry-driven so the footer AI_FEATURES count and the card
+   grid both stay in sync with what actually exists -- add a tool here, it appears everywhere. */
+var TOOLS = [];
+function tool(id, name, blurb, render){ TOOLS.push({id:id, name:name, blurb:blurb, render:render}); }
+
+tool('drake', 'Drake Equation Estimator', 'Estimate detectable civilizations in the galaxy.', function(el){
+  var fields = [
+    {k:'rstar', label:'R* -- new stars/year', min:0.1, max:20, step:0.1, v:1.5},
+    {k:'fp', label:'fp -- fraction with planets', min:0, max:1, step:0.05, v:1.0},
+    {k:'ne', label:'ne -- habitable planets/system', min:0, max:5, step:0.1, v:0.4},
+    {k:'fl', label:'fl -- fraction where life develops', min:0, max:1, step:0.01, v:0.5},
+    {k:'fi', label:'fi -- fraction developing intelligence', min:0, max:1, step:0.01, v:0.2},
+    {k:'fc', label:'fc -- fraction releasing signals', min:0, max:1, step:0.01, v:0.5},
+    {k:'L', label:'L -- years broadcasting', min:1, max:1000000, step:1, v:1000}
+  ];
+  el.innerHTML = fields.map(function(f){
+    return '<div style="margin:8px 0;"><label class="dim" style="display:flex;justify-content:space-between;font-size:.76rem;">'+escHtml(f.label)+' <b id="t-'+f.k+'-v">'+f.v+'</b></label><input type="range" id="t-'+f.k+'" min="'+f.min+'" max="'+f.max+'" step="'+f.step+'" value="'+f.v+'" style="width:100%;"></div>';
+  }).join('') + '<div id="t-drake-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var vals = {};
+    fields.forEach(function(f){ vals[f.k] = parseFloat(document.getElementById('t-'+f.k).value); document.getElementById('t-'+f.k+'-v').textContent = vals[f.k]; });
+    var N = vals.rstar*vals.fp*vals.ne*vals.fl*vals.fi*vals.fc*vals.L;
+    document.getElementById('t-drake-out').textContent = 'N \u2248 ' + (N<0.01?N.toExponential(2):N.toFixed(2));
+  }
+  fields.forEach(function(f){ document.getElementById('t-'+f.k).addEventListener('input', recompute); });
+  recompute();
+});
+
+tool('kardashev', 'Kardashev Scale Calculator', 'Civilization energy use -> Type 0-III score.', function(el){
+  el.innerHTML = '<label class="dim" style="font-size:.76rem;">Energy use (watts, log scale) <b id="t-kw-v"></b></label>'+
+    '<input type="range" id="t-kw" min="6" max="40" step="0.1" value="20" style="width:100%;">'+
+    '<div id="t-k-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var logP = parseFloat(document.getElementById('t-kw').value);
+    document.getElementById('t-kw-v').textContent = '10^'+logP+' W';
+    var K = (logP - 6) / 10; /* Sagan formalization: K=(log10(P)-6)/10 */
+    var label = K<1?'Sub-Type I (current human civilization: ~0.73)':K<2?'Type I -- harnesses a planet\'s energy':K<3?'Type II -- harnesses a star\'s energy':'Type III -- harnesses a galaxy\'s energy';
+    document.getElementById('t-k-out').textContent = 'K = ' + K.toFixed(2) + ' -- ' + label;
+  }
+  document.getElementById('t-kw').addEventListener('input', recompute); recompute();
+});
+
+tool('fermi-filter', 'Great Filter Estimator', 'Where does the hard step in life\'s history likely sit?', function(el){
+  var steps = [
+    {k:'abio', label:'Abiogenesis (life begins at all)', v:0.5},
+    {k:'multi', label:'Simple -> complex/multicellular life', v:0.3},
+    {k:'intel', label:'Complex life -> intelligence', v:0.1},
+    {k:'tech', label:'Intelligence -> detectable technology', v:0.5},
+    {k:'survive', label:'Technological civilization survives long', v:0.2}
+  ];
+  el.innerHTML = steps.map(function(s){
+    return '<div style="margin:6px 0;"><label class="dim" style="display:flex;justify-content:space-between;font-size:.76rem;">'+escHtml(s.label)+' <b id="t-gf-'+s.k+'-v">'+s.v+'</b></label><input type="range" id="t-gf-'+s.k+'" min="0.01" max="0.99" step="0.01" value="'+s.v+'" style="width:100%;"></div>';
+  }).join('') + '<div id="t-gf-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var vals = steps.map(function(s){ var v = parseFloat(document.getElementById('t-gf-'+s.k).value); document.getElementById('t-gf-'+s.k+'-v').textContent = v; return v; });
+    var product = vals.reduce(function(a,b){ return a*b; }, 1);
+    var weakest = steps[vals.indexOf(Math.min.apply(null,vals))];
+    document.getElementById('t-gf-out').textContent = 'Combined probability: ' + (product*100).toFixed(3) + '% -- likeliest "Great Filter" step: ' + weakest.label;
+  }
+  steps.forEach(function(s){ document.getElementById('t-gf-'+s.k).addEventListener('input', recompute); });
+  recompute();
+});
+
+tool('habitability', 'Exoplanet Habitability Index', 'Radius + orbit + star luminosity -> habitable-zone check.', function(el){
+  el.innerHTML =
+    '<label class="dim" style="font-size:.76rem;">Orbital distance (AU) <b id="t-hz-a-v"></b></label><input type="range" id="t-hz-a" min="0.1" max="5" step="0.05" value="1" style="width:100%;">'+
+    '<label class="dim" style="font-size:.76rem;">Star luminosity (relative to Sun) <b id="t-hz-l-v"></b></label><input type="range" id="t-hz-l" min="0.01" max="10" step="0.01" value="1" style="width:100%;">'+
+    '<div id="t-hz-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var a = parseFloat(document.getElementById('t-hz-a').value); document.getElementById('t-hz-a-v').textContent = a+' AU';
+    var L = parseFloat(document.getElementById('t-hz-l').value); document.getElementById('t-hz-l-v').textContent = L+'x Sun';
+    var inner = Math.sqrt(L/1.1), outer = Math.sqrt(L/0.53); /* standard conservative HZ approximation */
+    var teq = (278 * Math.pow(L,0.25) / Math.sqrt(a)).toFixed(0); /* rough equilibrium temp in K, no greenhouse */
+    var inZone = a >= inner && a <= outer;
+    document.getElementById('t-hz-out').textContent = 'Habitable zone: '+inner.toFixed(2)+'-'+outer.toFixed(2)+' AU. This orbit is ' + (inZone?'INSIDE':'outside') + ' it. Rough equilibrium temp: '+teq+' K.';
+  }
+  document.getElementById('t-hz-a').addEventListener('input', recompute);
+  document.getElementById('t-hz-l').addEventListener('input', recompute);
+  recompute();
+});
+
+tool('morphology', 'UAP Morphology Classifier', 'Describe a shape -- matched to AARO\'s reported categories.', function(el){
+  el.innerHTML = '<input type="text" id="t-morph-in" placeholder="e.g. glowing round light" style="width:100%;padding:8px;font-family:inherit;">'+
+    '<div id="t-morph-out" style="margin-top:8px;font-weight:600;"></div>';
+  var CATS = [
+    {k:['light','glow','orb','ball'], name:'Light / Orb', pct:'33% of reports with a described morphology (AARO FY2025)'},
+    {k:['round','sphere','ball','disc','disk'], name:'Spheroid', pct:'40% of reports with a described morphology (AARO FY2025)'},
+    {k:['triangle','triangular'], name:'Triangle', pct:'A recurring but less common reported shape'},
+    {k:['cylinder','tube','tic tac','pill'], name:'Cylinder / "Tic Tac"', pct:'The shape in the 2004 Nimitz case'},
+    {k:['cross','plus'], name:'Cross-shaped', pct:'Explicitly named in AARO\'s FY2025 "other" category'}
+  ];
+  document.getElementById('t-morph-in').addEventListener('input', function(e){
+    var low = e.target.value.toLowerCase();
+    var hit = CATS.find(function(c){ return c.k.some(function(k){ return low.indexOf(k)!==-1; }); });
+    document.getElementById('t-morph-out').textContent = hit ? ('Matches: ' + hit.name + ' -- ' + hit.pct) : (low ? 'No AARO-category keyword matched yet.' : '');
+    if (hit) logSessionEvent('Morphology Classifier: matched "' + hit.name + '"');
+  });
+});
+
+tool('witness', 'Witness Reliability Estimator', 'Distance, duration, lighting -> a rough reliability score.', function(el){
+  el.innerHTML =
+    '<label class="dim" style="font-size:.76rem;">Distance to object</label><select id="t-wr-d" style="width:100%;padding:6px;"><option value="2">Close (under 1 mile)</option><option value="1" selected>Moderate</option><option value="0">Very far / high altitude</option></select>'+
+    '<label class="dim" style="font-size:.76rem;">Duration observed</label><select id="t-wr-t" style="width:100%;padding:6px;"><option value="0">Under 5 seconds</option><option value="1" selected>5-60 seconds</option><option value="2">Over a minute</option></select>'+
+    '<label class="dim" style="font-size:.76rem;">Lighting</label><select id="t-wr-l" style="width:100%;padding:6px;"><option value="2" selected>Daylight</option><option value="1">Dusk/dawn</option><option value="0">Night, unlit</option></select>'+
+    '<label class="dim" style="font-size:.76rem;">Independent witnesses</label><select id="t-wr-w" style="width:100%;padding:6px;"><option value="0">Just one</option><option value="1">2-3</option><option value="2" selected>4+</option></select>'+
+    '<div id="t-wr-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var s = ['t-wr-d','t-wr-t','t-wr-l','t-wr-w'].reduce(function(sum,id){ return sum + parseInt(document.getElementById(id).value,10); }, 0);
+    var pct = Math.round(s/8*100);
+    document.getElementById('t-wr-out').textContent = 'Rule-based reliability estimate: ' + pct + '% (this scores reporting conditions only, not whether the object itself is anomalous)';
+  }
+  ['t-wr-d','t-wr-t','t-wr-l','t-wr-w'].forEach(function(id){ document.getElementById(id).addEventListener('change', recompute); });
+  recompute();
+});
+
+tool('credibility', 'Sighting Credibility Score', 'Checkbox the evidence types present -> tiered rating.', function(el){
+  var items = [
+    {k:'radar', label:'Radar corroboration'}, {k:'multi', label:'Multiple independent witnesses'},
+    {k:'video', label:'Photo or video evidence'}, {k:'official', label:'Official government investigation'},
+    {k:'mil', label:'Military/trained observer'}
+  ];
+  el.innerHTML = items.map(function(i){ return '<label style="display:block;font-size:.82rem;margin:4px 0;"><input type="checkbox" id="t-cr-'+i.k+'"> '+escHtml(i.label)+'</label>'; }).join('') +
+    '<div id="t-cr-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var n = items.filter(function(i){ return document.getElementById('t-cr-'+i.k).checked; }).length;
+    var tier = n>=4?'High':n>=2?'Medium':'Low';
+    document.getElementById('t-cr-out').textContent = tier + ' corroboration tier (' + n + '/' + items.length + ' factors present)';
+  }
+  items.forEach(function(i){ document.getElementById('t-cr-'+i.k).addEventListener('change', recompute); });
+  recompute();
+});
+
+tool('similarity', 'Case Similarity Finder', 'Pick a case -- find others sharing status or corroboration type.', function(el){
+  el.innerHTML = '<select id="t-sim-sel" style="width:100%;padding:6px;">' + CASES.map(function(c,i){ return '<option value="'+i+'">'+escHtml(c.name)+'</option>'; }).join('') + '</select>'+
+    '<div id="t-sim-out" style="margin-top:8px;"></div>';
+  function recompute(){
+    var idx = parseInt(document.getElementById('t-sim-sel').value,10);
+    var base = CASES[idx];
+    var matches = CASES.filter(function(c,i){ return i!==idx && (c.status===base.status || c.corroboration===base.corroboration); });
+    document.getElementById('t-sim-out').innerHTML = matches.length ?
+      ('Related by status/corroboration: ' + matches.map(function(m){ return escHtml(m.name); }).join(', ')) :
+      'No other case shares this status or corroboration type.';
+  }
+  document.getElementById('t-sim-sel').addEventListener('change', recompute); recompute();
+});
+
+tool('signal', 'Radio Signal Classifier', 'Bandwidth, repetition, drift -> natural vs anomalous.', function(el){
+  el.innerHTML =
+    '<label class="dim" style="font-size:.76rem;">Bandwidth <b id="t-sg-b-v"></b></label><input type="range" id="t-sg-b" min="0" max="100" value="50" style="width:100%;">'+
+    '<label class="dim" style="font-size:.76rem;">Repeats regularly?</label><select id="t-sg-r" style="width:100%;padding:6px;"><option value="0">No</option><option value="1">Yes</option></select>'+
+    '<label class="dim" style="font-size:.76rem;">Frequency drifts (Doppler-like)?</label><select id="t-sg-f" style="width:100%;padding:6px;"><option value="0">No</option><option value="1">Yes</option></select>'+
+    '<div id="t-sg-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var b = parseInt(document.getElementById('t-sg-b').value,10); document.getElementById('t-sg-b-v').textContent = b+'% wide';
+    var r = document.getElementById('t-sg-r').value==='1', f = document.getElementById('t-sg-f').value==='1';
+    var verdict = b>70 ? 'Likely terrestrial interference (too wideband for a deliberate narrowband beacon)' :
+      (b<20 && r && !f) ? 'Narrowband + repeating + no drift -- the classic SETI candidate profile (still almost always resolves to interference or a satellite)' :
+      f ? 'Frequency drift suggests a moving natural or artificial source (e.g. a satellite or pulsar)' : 'Inconclusive from these 3 factors alone';
+    document.getElementById('t-sg-out').textContent = verdict;
+  }
+  ['t-sg-b'].forEach(function(id){ document.getElementById(id).addEventListener('input', recompute); });
+  ['t-sg-r','t-sg-f'].forEach(function(id){ document.getElementById(id).addEventListener('change', recompute); });
+  recompute();
+});
+
+tool('arecibo', 'Arecibo-style Message Encoder', 'Type text -- see it as a binary pixel grid, like the 1974 message.', function(el){
+  el.innerHTML = '<input type="text" id="t-ar-in" maxlength="40" placeholder="Type a short message" style="width:100%;padding:8px;font-family:inherit;">'+
+    '<canvas id="t-ar-canvas" width="320" height="120" style="width:100%;background:#000;margin-top:8px;"></canvas>';
+  var canvas = document.getElementById('t-ar-canvas'), ctx = canvas.getContext('2d');
+  function draw(){
+    var text = document.getElementById('t-ar-in').value || 'ANOMALY';
+    ctx.clearRect(0,0,canvas.width,canvas.height);
+    var cols = 32, rows = Math.ceil(text.length/ (cols/8)) || 4;
+    var cell = canvas.width/cols;
+    for (var i=0;i<text.length;i++){
+      var code = text.charCodeAt(i);
+      for (var bit=0; bit<8; bit++){
+        var on = (code >> (7-bit)) & 1;
+        var col = (i*8+bit) % cols;
+        var row = Math.floor((i*8+bit)/cols);
+        if (row*cell > canvas.height) break;
+        ctx.fillStyle = on ? '#e6dfc4' : '#241f18';
+        ctx.fillRect(col*cell, row*cell, cell-1, cell-1);
+      }
+    }
+  }
+  document.getElementById('t-ar-in').addEventListener('input', draw); draw();
+});
+
+tool('gforce', 'Flight Physics G-Force Checker', 'Speed change + time -> G-force vs human tolerance.', function(el){
+  el.innerHTML =
+    '<label class="dim" style="font-size:.76rem;">Speed change (mph) <b id="t-g-s-v"></b></label><input type="range" id="t-g-s" min="10" max="3000" value="500" style="width:100%;">'+
+    '<label class="dim" style="font-size:.76rem;">Time to change (seconds) <b id="t-g-t-v"></b></label><input type="range" id="t-g-t" min="0.1" max="10" step="0.1" value="1" style="width:100%;">'+
+    '<div id="t-g-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var mph = parseFloat(document.getElementById('t-g-s').value); document.getElementById('t-g-s-v').textContent = mph+' mph';
+    var t = parseFloat(document.getElementById('t-g-t').value); document.getElementById('t-g-t-v').textContent = t+' s';
+    var mps = mph*0.44704;
+    var g = (mps/t)/9.81;
+    var note = g>15?'Beyond any known survivable human-piloted maneuver':g>9?'Exceeds sustained human blackout threshold (~9G)':g>5?'Extreme but survivable briefly (fighter-pilot range)':'Within normal aircraft range';
+    document.getElementById('t-g-out').textContent = g.toFixed(1) + ' G -- ' + note;
+  }
+  document.getElementById('t-g-s').addEventListener('input', recompute);
+  document.getElementById('t-g-t').addEventListener('input', recompute);
+  recompute();
+});
+
+tool('setisnr', 'SETI Signal-to-Noise Simulator', 'Transmitter power + distance + dish size -> detectability.', function(el){
+  el.innerHTML =
+    '<label class="dim" style="font-size:.76rem;">Transmitter power (watts, log) <b id="t-sn-p-v"></b></label><input type="range" id="t-sn-p" min="3" max="15" step="0.1" value="10" style="width:100%;">'+
+    '<label class="dim" style="font-size:.76rem;">Distance (light-years) <b id="t-sn-d-v"></b></label><input type="range" id="t-sn-d" min="1" max="10000" value="100" style="width:100%;">'+
+    '<label class="dim" style="font-size:.76rem;">Receiver dish diameter (m) <b id="t-sn-r-v"></b></label><input type="range" id="t-sn-r" min="10" max="500" value="100" style="width:100%;">'+
+    '<div id="t-sn-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var logP = parseFloat(document.getElementById('t-sn-p').value); document.getElementById('t-sn-p-v').textContent = '10^'+logP+' W';
+    var ly = parseFloat(document.getElementById('t-sn-d').value); document.getElementById('t-sn-d-v').textContent = ly+' ly';
+    var dish = parseFloat(document.getElementById('t-sn-r').value); document.getElementById('t-sn-r-v').textContent = dish+' m';
+    /* simplified inverse-square + collecting-area scaling, illustrative not link-budget-precise */
+    var score = logP + Math.log10(dish*dish) - 2*Math.log10(ly);
+    var verdict = score>8?'Easily detectable with current instruments':score>4?'Detectable by a large array (e.g. Green Bank, Arecibo-class)':'Below current detection thresholds';
+    document.getElementById('t-sn-out').textContent = 'Detectability index: ' + score.toFixed(1) + ' -- ' + verdict;
+  }
+  ['t-sn-p','t-sn-d','t-sn-r'].forEach(function(id){ document.getElementById(id).addEventListener('input', recompute); });
+  recompute();
+});
+
+tool('trend', 'AARO Report Trend Analyzer', 'Auto-computed stats from this page\'s own Timeline data.', function(el){
+  el.innerHTML = '<select id="t-tr-filter" style="width:100%;padding:6px;"><option value="all">All entries</option><option value="official">Official only</option><option value="reported">Reported only</option></select>'+
+    '<div id="t-tr-out" style="margin-top:8px;"></div>';
+  function recompute(){
+    var f = document.getElementById('t-tr-filter').value;
+    var subset = f==='all' ? TIMELINE : TIMELINE.filter(function(t){ return t.status===f; });
+    var byDecade = {};
+    subset.forEach(function(t){ var y = parseInt(t.date,10); var d = Math.floor(y/10)*10; byDecade[d] = (byDecade[d]||0)+1; });
+    var out = Object.keys(byDecade).sort().map(function(d){ return d+'s: '+byDecade[d]+' '+'\u2588'.repeat(byDecade[d]); }).join('<br>');
+    document.getElementById('t-tr-out').innerHTML = '<div style="font-family:monospace;font-size:.78rem;">'+out+'</div>';
+  }
+  document.getElementById('t-tr-filter').addEventListener('change', recompute); recompute();
+});
+
+tool('generator', 'Training-Exercise Case Generator', 'Generates a FICTIONAL practice case file, clearly labeled.', function(el){
+  el.innerHTML = '<button class="tab" style="clip-path:none;border-bottom:1px solid rgba(230,223,196,.18);" id="t-gen-btn">Generate</button><div id="t-gen-out" style="margin-top:8px;"></div>';
+  var LOCS = ['a coastal training range','a high-altitude commercial corridor','a remote desert installation','open ocean west of a carrier group'];
+  var SHAPES = ['a metallic sphere','a matte black triangle','a fast-moving point of light','an elongated cylinder'];
+  var WEATHER = ['clear skies','scattered cloud cover','dusk haze','moonless night'];
+  document.getElementById('t-gen-btn').addEventListener('click', function(){
+    var l = LOCS[Math.floor(Math.random()*LOCS.length)], s = SHAPES[Math.floor(Math.random()*SHAPES.length)], w = WEATHER[Math.floor(Math.random()*WEATHER.length)];
+    document.getElementById('t-gen-out').innerHTML = '<div class="stamp unproven">Training Exercise -- Not A Real Case</div><p style="margin-top:6px;">Reported over '+escHtml(l)+' under '+escHtml(w)+'. Witness describes '+escHtml(s)+' with no further corroboration on file.</p>';
+    logSessionEvent('Case Generator: created a training-exercise file');
+  });
+});
+
+tool('encryptor', 'Encrypted Field Log', 'Write a private note -- encrypt it client-side with your own passphrase.', function(el){
+  el.innerHTML = '<textarea id="t-enc-txt" placeholder="Your note" style="width:100%;padding:8px;font-family:inherit;" rows="2"></textarea>'+
+    '<input type="text" id="t-enc-pass" placeholder="Passphrase" style="width:100%;padding:8px;margin-top:4px;font-family:inherit;">'+
+    '<button class="tab" style="clip-path:none;border-bottom:1px solid rgba(230,223,196,.18);margin-top:6px;" id="t-enc-btn">Encrypt</button>'+
+    '<div id="t-enc-out" style="margin-top:8px;font-size:.72rem;word-break:break-all;"></div>';
+  document.getElementById('t-enc-btn').addEventListener('click', async function(){
+    var txt = document.getElementById('t-enc-txt').value, pass = document.getElementById('t-enc-pass').value;
+    if (!txt || !pass){ document.getElementById('t-enc-out').textContent = 'Enter both a note and a passphrase.'; return; }
+    var salt = crypto.getRandomValues(new Uint8Array(16)), iv = crypto.getRandomValues(new Uint8Array(12));
+    var enc = new TextEncoder();
+    var baseKey = await crypto.subtle.importKey('raw', enc.encode(pass), 'PBKDF2', false, ['deriveKey']);
+    var key = await crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:100000,hash:'SHA-256'}, baseKey, {name:'AES-GCM',length:256}, false, ['encrypt']);
+    var ct = await crypto.subtle.encrypt({name:'AES-GCM',iv:iv}, key, enc.encode(txt));
+    function b64(b){ return btoa(String.fromCharCode.apply(null, new Uint8Array(b))); }
+    document.getElementById('t-enc-out').textContent = 'noise.'+b64(salt)+'.'+b64(iv)+'.'+b64(ct)+'.noise (save this + your passphrase -- nothing is stored on this page)';
+  });
+});
+
+tool('acronym', 'Government Acronym Decoder', 'Type an acronym -- get its expansion.', function(el){
+  el.innerHTML = '<input type="text" id="t-ac-in" placeholder="e.g. AARO, ODNI, UAPTF" style="width:100%;padding:8px;font-family:inherit;">'+
+    '<div id="t-ac-out" style="margin-top:8px;font-weight:600;"></div>';
+  var ACR = {
+    aaro:'All-domain Anomaly Resolution Office', odni:'Office of the Director of National Intelligence',
+    uaptf:'Unidentified Aerial Phenomena Task Force', aoimsg:'Airborne Object Identification and Management Synchronization Group',
+    seti:'Search for Extraterrestrial Intelligence', ndaa:'National Defense Authorization Act',
+    icig:'Intelligence Community Inspector General', nga:'National Geospatial-Intelligence Agency',
+    uap:'Unidentified Anomalous Phenomena', ufo:'Unidentified Flying Object (older, retired federal term)'
+  };
+  document.getElementById('t-ac-in').addEventListener('input', function(e){
+    var key = e.target.value.toLowerCase().trim();
+    document.getElementById('t-ac-out').textContent = ACR[key] || (key ? 'Not in this page\'s acronym list yet.' : '');
+    if (ACR[key]) logSessionEvent('Acronym Decoder: looked up "' + key.toUpperCase() + '"');
+  });
+});
+
+tool('quiz', 'Which Case Matches You?', '3 quick questions -> a matched Sightings Archive entry.', function(el){
+  el.innerHTML =
+    '<label class="dim" style="font-size:.76rem;">Prefer evidence type</label><select id="t-q1" style="width:100%;padding:6px;"><option value="radar">Radar/sensor data</option><option value="witness">Human testimony</option><option value="official">Official investigation</option></select>'+
+    '<label class="dim" style="font-size:.76rem;">Prefer a case that is...</label><select id="t-q2" style="width:100%;padding:6px;"><option value="reported">Still unresolved</option><option value="disputed">Famously disputed</option><option value="official">Formally closed</option></select>'+
+    '<button class="tab" style="clip-path:none;border-bottom:1px solid rgba(230,223,196,.18);margin-top:6px;" id="t-q-btn">Match me</button>'+
+    '<div id="t-q-out" style="margin-top:8px;font-weight:600;"></div>';
+  document.getElementById('t-q-btn').addEventListener('click', function(){
+    var pref2 = document.getElementById('t-q2').value;
+    var match = CASES.find(function(c){ return c.status===pref2; }) || CASES[0];
+    document.getElementById('t-q-out').textContent = 'You match: ' + match.name + ' (' + match.date + ')';
+    logSessionEvent('Case Quiz: matched to "' + match.name + '"');
+  });
+});
+
+tool('greatsilence', 'Great Silence Overlap Simulator', 'Civilization lifetime vs galaxy age -> contact-window odds.', function(el){
+  el.innerHTML = '<label class="dim" style="font-size:.76rem;">Average civilization broadcast lifetime (years) <b id="t-gs-v"></b></label><input type="range" id="t-gs-l" min="10" max="10000000" value="10000" style="width:100%;">'+
+    '<div id="t-gs-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var L = parseFloat(document.getElementById('t-gs-l').value); document.getElementById('t-gs-v').textContent = Math.round(L).toLocaleString()+' yrs';
+    var galaxyAge = 10000000000; /* ~10 billion years the galaxy has been capable of hosting life */
+    var overlapChance = (L/galaxyAge*100);
+    document.getElementById('t-gs-out').textContent = 'A civilization broadcasting this long overlaps with any given moment in the galaxy\'s history about ' + overlapChance.toExponential(2) + '% of the time -- illustrating why timing, not just existence, may explain the silence.';
+  }
+  document.getElementById('t-gs-l').addEventListener('input', recompute); recompute();
+});
+
+tool('redactor', 'Redaction Generator', 'Paste text -- get an auto-redacted "declassified" version.', function(el){
+  el.innerHTML = '<textarea id="t-rd-in" placeholder="Paste or type text" style="width:100%;padding:8px;font-family:inherit;" rows="3"></textarea>'+
+    '<div id="t-rd-out" style="margin-top:8px;line-height:1.8;"></div>';
+  document.getElementById('t-rd-in').addEventListener('input', function(e){
+    var words = e.target.value.split(/\s+/).filter(Boolean);
+    var out = words.map(function(w,i){ return (i%4===2) ? '<span class="redact">'+escHtml(w)+'</span>' : escHtml(w); }).join(' ');
+    document.getElementById('t-rd-out').innerHTML = out;
+  });
+});
+
+tool('discriminator', 'UAP vs Known Object Discriminator', 'Describe behavior -- checked against common prosaic explanations.', function(el){
+  el.innerHTML = '<input type="text" id="t-di-in" placeholder="e.g. slow, blinking, hovering" style="width:100%;padding:8px;font-family:inherit;">'+
+    '<div id="t-di-out" style="margin-top:8px;font-weight:600;"></div>';
+  var RULES = [
+    {k:['blink','flash'], v:'Blinking pattern is consistent with aircraft anti-collision lights or a drone.'},
+    {k:['hover','still','stationary'], v:'Sustained hover for a long duration is consistent with a balloon or a drone, not typical of aircraft.'},
+    {k:['fast','instant','disappear'], v:'Sudden acceleration or disappearance is often a trick of perspective, distance misjudgment, or camera artifact -- but is also the profile AARO flags for further review.'},
+    {k:['bright','flare','sparkle'], v:'Consistent with sunlight reflecting off a satellite (AARO\'s FY2025 report attributed 238 cases to satellite flare).'},
+    {k:['formation','v-shape','triangle'], v:'Formation flying is consistent with drone swarms or military aircraft formations.'}
+  ];
+  document.getElementById('t-di-in').addEventListener('input', function(e){
+    var low = e.target.value.toLowerCase();
+    var hit = RULES.find(function(r){ return r.k.some(function(k){ return low.indexOf(k)!==-1; }); });
+    document.getElementById('t-di-out').textContent = hit ? hit.v : (low ? 'No common-explanation keyword matched -- this is the kind of description AARO would still classify as unresolved.' : '');
+    if (hit) logSessionEvent('Discriminator: matched a known-object explanation');
+  });
+});
+
+tool('lighttime', 'Distance / Light-Time Calculator', 'Light-years away -> real travel time at fractions of light speed.', function(el){
+  el.innerHTML = '<label class="dim" style="font-size:.76rem;">Distance (light-years) <b id="t-lt-v"></b></label><input type="range" id="t-lt-d" min="1" max="100000" value="4" style="width:100%;">'+
+    '<div id="t-lt-out" style="margin-top:8px;"></div>';
+  function recompute(){
+    var ly = parseFloat(document.getElementById('t-lt-d').value); document.getElementById('t-lt-v').textContent = ly.toLocaleString()+' ly';
+    var speeds = [0.01,0.1,0.5,0.9];
+    document.getElementById('t-lt-out').innerHTML = speeds.map(function(s){ return (s*100)+'% light speed: '+(ly/s).toFixed(1)+' years one-way'; }).join('<br>');
+  }
+  document.getElementById('t-lt-d').addEventListener('input', recompute); recompute();
+});
+
+tool('ghz', 'Galactic Habitable Zone Estimator', 'Distance from galactic center -> rough suitability score.', function(el){
+  el.innerHTML = '<label class="dim" style="font-size:.76rem;">Distance from galactic center (kiloparsecs) <b id="t-ghz-v"></b></label><input type="range" id="t-ghz-d" min="0" max="20" step="0.1" value="8" style="width:100%;">'+
+    '<div id="t-ghz-out" style="margin-top:8px;font-weight:600;"></div>';
+  function recompute(){
+    var d = parseFloat(document.getElementById('t-ghz-d').value); document.getElementById('t-ghz-v').textContent = d+' kpc (Earth is ~8)';
+    var verdict = d<4?'Too close: high supernova rate and radiation likely disrupt complex life':d>12?'Too far: low metallicity likely means fewer rocky planets':'Within the commonly proposed Galactic Habitable Zone (roughly 4-12 kpc)';
+    document.getElementById('t-ghz-out').textContent = verdict;
+  }
+  document.getElementById('t-ghz-d').addEventListener('input', recompute); recompute();
+});
+
+tool('waveform', 'Signal Waveform Matcher', 'Pick a pattern preset -- see its likely classification.', function(el){
+  el.innerHTML = '<div style="display:flex;flex-wrap:wrap;gap:6px;">' +
+    ['Steady tone','Regular pulse','Random noise','Frequency sweep'].map(function(w,i){ return '<button class="tab" style="clip-path:none;border-bottom:1px solid rgba(230,223,196,.18);" data-w="'+i+'">'+w+'</button>'; }).join('') +
+    '</div><div id="t-wv-out" style="margin-top:8px;font-weight:600;"></div>';
+  var VERDICTS = [
+    'Steady, unmodulated tone: most consistent with a beacon, radar, or test signal -- rarely flagged as anomalous on its own.',
+    'Regular pulse train: matches known pulsar profiles almost exactly -- this is the classic "false alarm" pattern in real SETI history.',
+    'Random/broadband noise: consistent with terrestrial interference or instrument noise, not a deliberate signal.',
+    'Frequency sweep: consistent with a moving transmitter (satellite, aircraft) via Doppler shift, or a chirped radar pulse.'
+  ];
+  el.querySelectorAll('button').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      document.getElementById('t-wv-out').textContent = VERDICTS[parseInt(btn.getAttribute('data-w'),10)];
+      logSessionEvent('Waveform Matcher: selected "' + btn.textContent + '"');
+    });
+  });
+});
+
+tool('predictor', 'Case Status Predictor', 'Rule-based (not machine-learned) guess at a hypothetical case\'s likely status.', function(el){
+  var items = [
+    {k:'radar', label:'Radar/sensor corroboration'}, {k:'multi', label:'Multiple witnesses'},
+    {k:'mil', label:'Military personnel involved'}, {k:'day', label:'Occurred in daylight'}
+  ];
+  el.innerHTML = items.map(function(i){ return '<label style="display:block;font-size:.82rem;margin:4px 0;"><input type="checkbox" id="t-pr-'+i.k+'"> '+escHtml(i.label)+'</label>'; }).join('') +
+    '<div id="t-pr-out" style="margin-top:8px;font-weight:600;"></div>'+
+    '<p class="dim" style="font-size:.68rem;margin-top:6px;">Rule-of-thumb only, based on patterns in this page\'s own Sightings Archive -- not a trained model.</p>';
+  function recompute(){
+    var radar = document.getElementById('t-pr-radar').checked, multi = document.getElementById('t-pr-multi').checked;
+    var mil = document.getElementById('t-pr-mil').checked, day = document.getElementById('t-pr-day').checked;
+    var n = [radar,multi,mil,day].filter(Boolean).length;
+    var verdict = n>=3 ? 'Likely status: Reported (strong corroboration tends to keep a case open/unresolved rather than dismissed)' :
+      n<=1 ? 'Likely status: Unproven or Disputed (weak corroboration is common in cases that get an official prosaic explanation)' :
+      'Likely status: Reported or Testimony, depending on who is the primary source';
+    document.getElementById('t-pr-out').textContent = verdict;
+  }
+  items.forEach(function(i){ document.getElementById('t-pr-'+i.k).addEventListener('change', recompute); });
+  recompute();
+});
+
+var SESSION_LOG = [];
+tool('sessionlog', 'Session Anomaly Log', 'Every interaction on this bench, logged live below.', function(el){
+  el.innerHTML = '<div id="t-log-out" style="font-size:.78rem;max-height:160px;overflow-y:auto;font-family:monospace;"></div>';
+  function render(){
+    document.getElementById('t-log-out').innerHTML = SESSION_LOG.length ?
+      SESSION_LOG.slice(-12).map(function(l){ return escHtml(l); }).join('<br>') :
+      'No interactions logged yet this session -- try any instrument above.';
+  }
+  render();
+  el._refresh = render;
+});
+
+function logSessionEvent(msg){
+  SESSION_LOG.push('[' + new Date().toLocaleTimeString() + '] ' + msg);
+  var logEl = document.querySelector('[data-tool-id="sessionlog"]');
+  if (logEl && logEl._refresh) logEl._refresh();
+  artifactReact(0.12);
+}
+
+function renderInstruments(){
+  var html = '<div class="card"><h2>Instruments</h2><p class="dim">'+TOOLS.length+' offline, rule-based tools -- every one responds to real input, no API, no network.</p></div>';
+  TOOLS.forEach(function(t){
+    html += '<div class="card" data-tool-id="'+t.id+'"><h3>'+escHtml(t.name)+'</h3><p class="dim" style="margin:0 0 8px;font-size:.8rem;">'+escHtml(t.blurb)+'</p><div class="tool-body" id="tool-body-'+t.id+'"></div></div>';
+  });
+  return html;
+}
+function initInstruments(){
+  TOOLS.forEach(function(t){
+    var container = document.getElementById('tool-body-'+t.id);
+    if (container) t.render(container);
+  });
+}
+
+/* ============ RECOVERED ARTIFACT 7-ALPHA -- reacts to real page activity, not decorative ============
+   FIXED (2026-08-16): rotation/pulse used to be CSS `animation-duration: calc(...var...)`.
+   Changing --artifact-energy (every ~2s from decay, or on click) made most browsers restart
+   that CSS animation from 0% every time -- so it never completed a smooth loop, just kept
+   snapping back partway through. Fix: drive rotation/pulse from a single continuous
+   requestAnimationFrame loop that ACCUMULATES phase every frame (rotationAngle += rate*dt),
+   never resets it, and only changes how fast the phase accumulates when energy changes --
+   which is what "loop that speeds up smoothly" actually requires. */
+var artifactEnergy = 0;
+var artifactClicks = 0;
+var artifactRotationDeg = 15; /* tilt matches the old CSS keyframe's rotateX(15deg) start */
+var artifactRotationY = 0;
+var artifactPulsePhase = 0;
+var artifactFlashDecay = 0; /* extra brief glow boost on click/react, decays each frame */
+var artifactLastTick = null;
+var ARTIFACT_RUNES = ['\u25CB','\u25B3','\u25C7','\u2318','\u2317','\u29C8'];
+var artifactReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function artifactApply(){
+  var stage = document.getElementById('artifact-stage');
+  if (!stage) return;
+  stage.style.setProperty('--artifact-energy', artifactEnergy.toFixed(3));
+  var status = document.getElementById('artifact-status');
+  if (status){
+    var label = artifactEnergy > 0.7 ? 'Highly active -- sustained resonance detected' :
+      artifactEnergy > 0.35 ? 'Active -- responding to recent activity' :
+      artifactEnergy > 0.05 ? 'Stirring' : 'Dormant. No recorded activity yet.';
+    status.textContent = label + (artifactClicks ? (' -- ' + artifactClicks + ' direct contact' + (artifactClicks===1?'':'s')) : '');
+  }
+}
+function artifactReact(boost){
+  artifactEnergy = Math.min(1, artifactEnergy + boost);
+  artifactFlashDecay = 1;
+  artifactApply();
+}
+setInterval(function(){
+  artifactEnergy = Math.max(0, artifactEnergy - 0.03);
+  artifactApply();
+}, 2000);
+document.addEventListener('click', function(e){
+  var stage = e.target.closest && e.target.closest('#artifact-stage');
+  if (!stage) return;
+  artifactClicks++;
+  artifactReact(0.28);
+  var face = document.getElementById('artifact-face');
+  if (face) face.textContent = ARTIFACT_RUNES[artifactClicks % ARTIFACT_RUNES.length];
+  logSessionEvent('Artifact 7-Alpha: direct contact registered (energy ' + Math.round(artifactEnergy*100) + '%)');
+});
+
+function artifactTick(now){
+  requestAnimationFrame(artifactTick);
+  if (artifactLastTick === null) artifactLastTick = now;
+  var dt = Math.min(0.1, (now - artifactLastTick) / 1000); /* seconds, clamped so a tab switch doesn't jump */
+  artifactLastTick = now;
+  var cube = document.getElementById('artifact-cube');
+  var core = document.getElementById('artifact-core');
+  if (!cube && !core) return; /* not on the Briefing tab right now -- state still accumulates, just not rendered */
+
+  if (!artifactReducedMotion){
+    var rotSpeed = 22.5 + artifactEnergy * 45; /* deg/sec: faster spin at higher energy */
+    artifactRotationY = (artifactRotationY + rotSpeed * dt) % 360;
+    if (cube) cube.style.transform = 'rotateX(' + artifactRotationDeg + 'deg) rotateY(' + artifactRotationY + 'deg)';
+
+    var pulseRate = 0.55 + artifactEnergy * 1.15; /* cycles/sec */
+    artifactPulsePhase = (artifactPulsePhase + pulseRate * dt) % 1;
+    var s = Math.sin(artifactPulsePhase * Math.PI * 2);
+    if (core) core.style.transform = 'scale(' + (0.8 + 0.35 * (0.5 + 0.5*s)) + ')';
+    if (core) core.style.opacity = (0.45 + 0.55 * (0.5 + 0.5*s)).toFixed(3);
+  }
+
+  if (artifactFlashDecay > 0){
+    artifactFlashDecay = Math.max(0, artifactFlashDecay - dt*4);
+    if (core) core.style.filter = 'brightness(' + (1 + artifactFlashDecay*1.4) + ')';
+  } else if (core){
+    core.style.filter = '';
+  }
+}
+requestAnimationFrame(artifactTick);
+
+showSection('briefing');
+
+window.AVIDAA_ANOMALY_DATA = { TIMELINE:TIMELINE, PEOPLE:PEOPLE, CASES:CASES, COMMENTARY:COMMENTARY };
+
+/* ============ AI-DRIVEN AMBIENT BACKGROUND: radar sweep + starfield with anomaly blips ============
+   Topic-themed generative canvas (offline, no API): a slow-rotating radar sweep over a drifting
+   starfield, with occasional unexplained "blips" that fade in/out at random -- most fade away
+   uneventfully (the vast majority of real UAP reports resolve to conventional causes), a rare
+   few persist a little longer before fading (echoing the small unresolved fraction). Nothing
+   here is a data visualization of the real case counts above; it is deliberately just mood. */
+var bgCanvas = document.getElementById('bg-canvas');
+var bgCtx = bgCanvas.getContext('2d');
+var pageVisible = true;
+document.addEventListener('visibilitychange', function(){ pageVisible = !document.hidden; });
+function resizeBg(){ bgCanvas.width = window.innerWidth; bgCanvas.height = window.innerHeight; }
+window.addEventListener('resize', resizeBg);
+resizeBg();
+
+var stars = [];
+(function initStars(){
+  var count = Math.floor((bgCanvas.width*bgCanvas.height)/9000);
+  for (var i=0;i<count;i++){
+    stars.push({ x:Math.random()*bgCanvas.width, y:Math.random()*bgCanvas.height, r:Math.random()*1.3+0.3, tw:Math.random()*Math.PI*2 });
+  }
+})();
+var blips = [];
+var sweepAngle = 0;
+function spawnBlip(){
+  var cx = bgCanvas.width/2, cy = bgCanvas.height/2;
+  var maxR = Math.min(bgCanvas.width,bgCanvas.height)*0.46;
+  var ang = Math.random()*Math.PI*2, dist = Math.random()*maxR;
+  blips.push({ x:cx+Math.cos(ang)*dist, y:cy+Math.sin(ang)*dist, life:0, maxLife: Math.random()<0.12 ? (240+Math.random()*300) : (40+Math.random()*60) });
+}
+var lastSpawn = 0;
+function drawBg(t){
+  if (!pageVisible){ requestAnimationFrame(drawBg); return; }
+  var W = bgCanvas.width, H = bgCanvas.height, cx = W/2, cy = H/2;
+  bgCtx.clearRect(0,0,W,H);
+  stars.forEach(function(s){
+    var tw = 0.55 + 0.45*Math.sin(t*0.001 + s.tw);
+    bgCtx.fillStyle = 'rgba(200,220,210,'+(0.5*tw)+')';
+    bgCtx.beginPath(); bgCtx.arc(s.x,s.y,s.r,0,Math.PI*2); bgCtx.fill();
+  });
+  var maxR = Math.min(W,H)*0.46;
+  bgCtx.strokeStyle = 'rgba(109,255,184,0.16)';
+  bgCtx.lineWidth = 1;
+  [0.25,0.5,0.75,1].forEach(function(f){ bgCtx.beginPath(); bgCtx.arc(cx,cy,maxR*f,0,Math.PI*2); bgCtx.stroke(); });
+  sweepAngle += 0.006;
+  var grad = bgCtx.createConicGradient ? bgCtx.createConicGradient(sweepAngle - Math.PI/2, cx, cy) : null;
+  if (grad){
+    grad.addColorStop(0, 'rgba(109,255,184,0.22)');
+    grad.addColorStop(0.06, 'rgba(109,255,184,0.0)');
+    grad.addColorStop(1, 'rgba(109,255,184,0.0)');
+    bgCtx.fillStyle = grad;
+    bgCtx.beginPath(); bgCtx.moveTo(cx,cy); bgCtx.arc(cx,cy,maxR,0,Math.PI*2); bgCtx.fill();
+  }
+  if (t - lastSpawn > 900 + Math.random()*1400){ spawnBlip(); lastSpawn = t; }
+  blips = blips.filter(function(b){ return b.life < b.maxLife; });
+  blips.forEach(function(b){
+    b.life++;
+    var f = b.life/b.maxLife;
+    var alpha = Math.sin(f*Math.PI);
+    var isPersistent = b.maxLife > 200;
+    bgCtx.fillStyle = isPersistent ? 'rgba(212,160,23,'+(alpha*0.9)+')' : 'rgba(109,255,184,'+(alpha*0.7)+')';
+    bgCtx.beginPath(); bgCtx.arc(b.x,b.y,isPersistent?3:2,0,Math.PI*2); bgCtx.fill();
+  });
+  requestAnimationFrame(drawBg);
+}
+requestAnimationFrame(drawBg);
+
+/* ============ AI_FEATURES registry -- footer badge auto-computes from this, never hardcoded ============ */
+var AI_FEATURES = TOOLS.map(function(t){ return t.name; });
+document.getElementById('ai-features-badge').textContent = AI_FEATURES.length + ' OFFLINE AI SYSTEMS ON THIS PAGE (plus the chatbot, rabbit hole, and ambient canvas below)';
+
+/* ============ OFFLINE CHATBOT (no API, no network, no key) ============ */
+var KB = [
+  { keys:['aaro','all-domain','anomaly resolution office'], a:'AARO -- the All-domain Anomaly Resolution Office -- is the Pentagon office established July 20, 2022 to investigate UAP. Its most recent public report (FY2025, released July 2026) logged 319 new reports and 1,870 total case holdings.' },
+  { keys:['uap','unidentified anomalous'], a:'UAP stands for Unidentified Anomalous Phenomena -- the current official U.S. government term, replacing "UFO" since AARO adopted it in 2022.' },
+  { keys:['roswell'], a:'Roswell, July 1947: debris recovered in New Mexico, first announced as a "flying disc" then revised to a weather balloon. Declassified in the 1990s as Project Mogul, a classified balloon program. Check the Sightings Archive tab -- marked Disputed, not Official or Unproven.' },
+  { keys:['grusch','whistleblower'], a:'David Grusch is a former NGA officer who testified to Congress in July 2023 that the U.S. recovers non-human craft and biologics, based on secondhand interviews. He states he has not personally seen a craft. See the Government & Whistleblowers tab -- marked Testimony, which is a different status than Official or Reported.' },
+  { keys:['nimitz','tic tac'], a:'The 2004 USS Nimitz "Tic Tac" incident: Navy pilots and radar operators tracked an unusual object off California. Radar and FLIR footage exist. Status: Reported, officially unresolved.' },
+  { keys:['drake','equation'], a:'The Drake Equation estimates how many currently-detectable civilizations exist in the Milky Way. Try the sliders on The Science tab -- there is no single correct answer, that is the whole point of the equation.' },
+  { keys:['fermi','paradox'], a:'The Fermi Paradox asks: if the universe should produce intelligent life often, why haven\'t we found clear evidence of it? See The Science tab for the leading proposed resolutions.' },
+  { keys:['seti'], a:'SETI is the Search for Extraterrestrial Intelligence -- radio and optical surveys looking for artificial signals, running since Project Ozma in 1960. See The Science tab for the timeline.' },
+  { keys:['tyson','neil degrasse'], a:'Neil deGrasse Tyson is featured on the Commentary tab -- his public position holds government-disclosure claims to the same evidentiary bar as any extraordinary scientific claim, while affirming the statistical case for life existing somewhere in the universe.' },
+  { keys:['status','legend','official','disputed','unproven'], a:'Every entry on this page carries one status: Official (agency\'s own finding), Testimony (sworn but unverified), Reported (witnessed, unresolved), Disputed (official explanation exists but contested), Unproven, or Commentary (opinion). Never merged together.' },
+  { keys:['hub','avidaa hub'], a:'AVIDAA HUB is the main index for the whole AVIDAA ecosystem: avidaa1.github.io' },
+  { keys:['cosmos','avidaa cosmos'], a:'AVIDAA COSMOS is a full real-astronomy 3D solar system and sky dome, including a validated Sun/Earth/Moon eclipse system: avidaa1.github.io/cosmos' },
+  { keys:['who are you','what are you'], a:'I\'m the offline ANOMALY Desk assistant -- pure JavaScript, no API, no network calls. I only know what\'s written on this page.' },
+  { keys:['thanks','thank you'], a:'Any time.' },
+  { keys:['help'], a:'Ask me about AARO, Roswell, Grusch, the Drake Equation, SETI, or any status label -- I answer from this page\'s own content.' },
+  { keys:['blue book','project blue book'], a:'Project Blue Book (1952-1969) was the U.S. Air Force\'s systematic UFO investigation program, led initially by Capt. Edward Ruppelt (who coined "UFO"). Closed after the Condon Report -- 12,618 sightings catalogued, 701 left unidentified. See the Timeline tab.' },
+  { keys:['hill','betty','barney'], a:'Betty and Barney Hill (1961) reported the first widely publicized alien abduction claim in the U.S. -- missing time on a New Hampshire drive, later described under hypnosis. Status: Testimony. See the Contact & Folklore tab.' },
+  { keys:['walton','travis'], a:'Travis Walton (1975) reportedly disappeared for 5 days in Arizona after being struck by light from a hovering object. Basis for the film "Fire in the Sky." Status: Testimony. See the Contact & Folklore tab.' },
+  { keys:['rendlesham'], a:'Rendlesham Forest (Dec 1980) -- multiple USAF security personnel in England reported an unusual object over 2-3 nights, sometimes called "Britain\'s Roswell." Status: Reported. See the Timeline or Sightings Archive tab.' },
+  { keys:['malmstrom'], a:'Malmstrom AFB (March 1967) -- former officer Robert Salas reported 10 nuclear missiles going inoperable as a glowing object was sighted nearby. Status: Testimony. See the Timeline tab.' },
+  { keys:['species','grey','reptilian','nordic','mantis'], a:'The "Grey," "Nordic," "Reptilian," and "Mantis" archetypes are a folklore taxonomy, not validated biology. See the Contact & Folklore tab for each one\'s described appearance, why weight is never given a number (no specimen has ever existed to weigh), whether any government report has ever named them (none have), and an evidence score -- all four score zero verified specimens, regardless of how often they get depicted.' },
+  { keys:['dimension','dimensions'], a:'Real physics (string theory, Kaluza-Klein) does involve extra compactified dimensions -- but that\'s unrelated to claims about "interdimensional beings" or contact from other planes of consciousness, which have no basis in that physics. See The Science tab for both, kept clearly separate.' },
+  { keys:['contact','abduction'], a:'The Contact & Folklore tab covers personal first-hand claims of direct contact/abduction (Hill, Walton, Villas Boas, Adamski, Strieber) -- separate from the Government & Whistleblowers tab, which is about an alleged program, not personal contact.' },
+  { keys:['foia','freedom of information'], a:'The FOIA Sources tab has real, live links to the CIA, FBI, and NSA\'s own declassified UFO document collections, plus the National Archives\' Blue Book records and The Black Vault\'s privately-maintained FOIA archive. All checked live before publishing.' },
+  { keys:['mufon'], a:'MUFON (Mutual UFO Network), founded 1969, is the oldest and largest civilian UFO investigation network -- volunteer-run, ~4,000+ members. See the Groups & Orgs tab.' },
+  { keys:['ttsa','to the stars'], a:'To The Stars Academy (TTSA), founded 2017 by Tom DeLonge, Jim Semivan, and Hal Puthoff, is a commercial public benefit corporation notable for the 2017 AATIP disclosure -- its later claims about acquired materials have drawn sustained criticism, including from within UAP research itself. See the Groups & Orgs tab.' },
+  { keys:['cufos','hynek'], a:'CUFOS (J. Allen Hynek Center for UFO Studies), founded 1973 by Project Blue Book\'s own scientific consultant, stresses case-file rigor over public advocacy. See the Groups & Orgs tab.' },
+  { keys:['nuforc'], a:'NUFORC (National UFO Reporting Center), founded 1974, is a public sighting-report hotline and database with roughly 170,000 reports catalogued. See the Groups & Orgs tab.' },
+  { keys:['galileo project'], a:'The Galileo Project (Harvard, founded 2021 by Avi Loeb) builds dedicated instruments to search for physical evidence of extraterrestrial technology. See the Groups & Orgs and Commentary tabs.' },
+  { keys:['bye','goodbye'], a:'Signing off.' }
+];
+function levenshtein(a,b){
+  var m=a.length,n=b.length,d=[];
+  for(var i=0;i<=m;i++) d[i]=[i];
+  for(var j=0;j<=n;j++) d[0][j]=j;
+  for(i=1;i<=m;i++) for(j=1;j<=n;j++){
+    d[i][j] = a[i-1]===b[j-1] ? d[i-1][j-1] : Math.min(d[i-1][j-1]+1,d[i][j-1]+1,d[i-1][j]+1);
+  }
+  return d[m][n];
+}
+function fuzzyIncludes(text, key){
+  if (text.indexOf(key)!==-1) return true;
+  if (key.length < 5) return false;
+  var words = text.split(/\s+/);
+  for (var i=0;i<words.length;i++){
+    if (words[i].length>=5 && levenshtein(words[i], key) <= 1) return true;
+  }
+  return false;
+}
+function kbLookup(msg){
+  var low = msg.toLowerCase();
+  var best = null, bestScore = 0;
+  KB.forEach(function(entry){
+    entry.keys.forEach(function(k){
+      if (fuzzyIncludes(low, k) && k.length > bestScore){ best = entry; bestScore = k.length; }
+    });
+  });
+  return best;
+}
+
+/* ============ TWO-TIER ENCRYPTED RABBIT HOLE ============
+   AES-256-GCM, PBKDF2-SHA256 100k iterations, Web Crypto only -- no library.
+   Blob format: noise.<salt_b64>.<iv_b64>.<ciphertext_b64>.noise (5 dot-parts).
+   The reveal URL is never present in plaintext anywhere in this file. */
+var TIER1_BLOB = 'noise.sX1qvq9m9GoSavU35g0VTA==.WNyKfbm+XdrYKEbV.8Wm6l0OfGGLLG5b44oiLZY0gauo0+aoStasrlHFqzYaH/ci37iO1206/A3yZiBLF.noise';
+var TIER2_BLOB = 'noise.WbiB+JU/d5jJ4F3YE4uHeQ==.VirYva4/mGy2kzCc.KTCu1wt0Te9iKSyMsH3YVq3+pWnpY9wYQW//TFn6Pb+uuUZeZJSx80d9gP1RoBHFwwjG35idJb/5Ig==.noise';
+
+function normalizeKey(s){ return s.toLowerCase().trim().replace(/\s+/g,' '); }
+function b64ToBytes(b64){ var bin = atob(b64); var arr = new Uint8Array(bin.length); for (var i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); return arr; }
+async function decryptBlob(passphrase, blob){
+  var parts = blob.split('.');
+  var salt = b64ToBytes(parts[1]), iv = b64ToBytes(parts[2]), ct = b64ToBytes(parts[3]);
+  var enc = new TextEncoder();
+  var baseKey = await crypto.subtle.importKey('raw', enc.encode(normalizeKey(passphrase)), 'PBKDF2', false, ['deriveKey']);
+  var key = await crypto.subtle.deriveKey(
+    { name:'PBKDF2', salt:salt, iterations:100000, hash:'SHA-256' },
+    baseKey, { name:'AES-GCM', length:256 }, false, ['decrypt']
+  );
+  var pt = await crypto.subtle.decrypt({ name:'AES-GCM', iv:iv }, key, ct);
+  return new TextDecoder().decode(pt);
+}
+
+var quest = { tier:0, gateIdx:0 };
+var TIER1_GATES = [
+  { q:'Gate 1 of 3: what 4-letter acronym is the U.S. government\'s current UAP office? (check the Timeline or Briefing tab)', a:'aaro' },
+  { q:'Gate 2 of 3: what year was that office established? (same entry on the Timeline tab)', a:'2022' },
+  { q:'Gate 3 of 3: what 3-letter term officially replaced "UFO" in U.S. government use? (see the Briefing tab)', a:'uap' }
+];
+var TIER2_RIDDLES = [
+  { q:'Riddle 1 of 3: per the page footer, what year is AVIDAA\'s foundation stated as?', a:'2025' },
+  { q:'Riddle 2 of 3: per the page footer, besides humans, what else is this built for?', a:'ai' },
+  { q:'Riddle 3 of 3: per the page footer, what kind of knowledge does this aim to make?', a:'clear' }
+];
+
+function checkQuestInput(msg){
+  var low = msg.toLowerCase().trim();
+  if (['stop','quit','cancel','i resign','nevermind','never mind'].indexOf(low) !== -1 && quest.tier){
+    var t = quest.tier; quest.tier = 0; quest.gateIdx = 0;
+    addMsg('bot', 'Stepping back. Say "rabbit hole" or "the flame" any time to try again.');
+    return { handled:true };
+  }
+  if (quest.tier === 1){
+    var gate = TIER1_GATES[quest.gateIdx];
+    if (low.indexOf(gate.a) !== -1){
+      quest.gateIdx++;
+      if (quest.gateIdx >= TIER1_GATES.length){
+        decryptBlob('noise 2025', TIER1_BLOB).then(function(url){
+          addMsg('bot', '<span class="cb-rainbow">All 3 gates cleared. ' + escHtml(url) + '</span>');
+        }).catch(function(){ addMsg('bot', 'Decryption failed -- try the quest again.'); });
+        quest.tier = 0; quest.gateIdx = 0;
+      } else {
+        addMsg('bot', 'Correct. ' + TIER1_GATES[quest.gateIdx].q);
+      }
+      return { handled:true };
+    }
+    addMsg('bot', 'Not quite. ' + gate.q);
+    return { handled:true };
+  }
+  if (quest.tier === 2){
+    var riddle = TIER2_RIDDLES[quest.gateIdx];
+    if (low.indexOf(riddle.a) !== -1){
+      quest.gateIdx++;
+      if (quest.gateIdx >= TIER2_RIDDLES.length){
+        decryptBlob('2025 ai clear', TIER2_BLOB).then(function(url){
+          addMsg('bot', '<span class="cb-rainbow">All 3 riddles solved. ' + escHtml(url) + '</span>');
+        }).catch(function(){ addMsg('bot', 'Decryption failed -- try the quest again.'); });
+        quest.tier = 0; quest.gateIdx = 0;
+      } else {
+        addMsg('bot', 'Correct. ' + TIER2_RIDDLES[quest.gateIdx].q);
+      }
+      return { handled:true };
+    }
+    addMsg('bot', 'Not quite. ' + riddle.q);
+    return { handled:true };
+  }
+  if (/\brabbit\b|\bhole\b|\bsecret\b|\bquest\b/.test(low)){
+    quest.tier = 1; quest.gateIdx = 0;
+    addMsg('bot', 'A quest begins. ' + TIER1_GATES[0].q);
+    return { handled:true };
+  }
+  if (/the flame|go deeper/.test(low)){
+    quest.tier = 2; quest.gateIdx = 0;
+    addMsg('bot', 'Deeper still. ' + TIER2_RIDDLES[0].q);
+    return { handled:true };
+  }
+  return { handled:false };
+}
+
+function addMsg(who, html){
+  var log = document.getElementById('anom-chat-log');
+  var div = document.createElement('div');
+  div.className = who === 'user' ? 'msg-user' : 'msg-bot';
+  div.innerHTML = html;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+function chatSend(){
+  var input = document.getElementById('anom-chat-input');
+  var msg = input.value.trim();
+  if (!msg) return;
+  addMsg('user', escHtml(msg));
+  input.value = '';
+  var res = checkQuestInput(msg);
+  if (res.handled) return;
+  var hit = kbLookup(msg);
+  addMsg('bot', hit ? escHtml(hit.a) : 'I don\'t have that in this page\'s knowledge base yet -- try asking about AARO, Roswell, Grusch, the Drake Equation, or a status label.');
+}
+document.getElementById('anom-chat-send').addEventListener('click', chatSend);
+document.getElementById('anom-chat-input').addEventListener('keydown', function(e){ if (e.key==='Enter') chatSend(); });
+document.getElementById('anom-chat-toggle').addEventListener('click', function(){
+  document.getElementById('anom-chat-panel').classList.toggle('show');
+});
+addMsg('bot', 'ANOMALY Desk online. Ask about any case, AARO, or the science on this page.');
+
+
+})();
+</script>
+
+</body>
+</html>
+

@@ -1,0 +1,240 @@
+Archived (removed from the live page) by the chatbot audit 20261125_1505.
+Original file: index.html
+
+/* ===== chat widget HTML (bytes 404) ===== */
+<button id="anom-chat-toggle" aria-label="Open ANOMALY assistant">&#9670;</button>
+<div id="anom-chat-panel">
+  <div id="anom-chat-head">ANOMALY DESK -- offline assistant</div>
+  <div id="anom-chat-log"></div>
+  <div id="anom-chat-input-row">
+    <input id="anom-chat-input" type="text" placeholder="Ask about a case, AARO, the science...">
+    <button id="anom-chat-send">Send</button>
+  </div>
+</div>
+
+
+
+/* ===== chat JS (KB, rabbit-hole quest, matcher, UI) (bytes 13783) ===== */
+/* ============ OFFLINE CHATBOT (no API, no network, no key) ============ */
+var KB = [
+  { keys:['aaro','all-domain','anomaly resolution office'], a:'AARO -- the All-domain Anomaly Resolution Office -- is the Pentagon office established July 20, 2022 to investigate UAP. Its most recent public report (FY2025, released July 2026) logged 319 new reports and 1,870 total case holdings.' },
+  { keys:['uap','unidentified anomalous'], a:'UAP stands for Unidentified Anomalous Phenomena -- the current official U.S. government term, replacing "UFO" since AARO adopted it in 2022.' },
+  { keys:['roswell'], a:'Roswell, July 1947: debris recovered in New Mexico, first announced as a "flying disc" then revised to a weather balloon. Declassified in the 1990s as Project Mogul, a classified balloon program. Check the Sightings Archive tab -- marked Disputed, not Official or Unproven.' },
+  { keys:['grusch','whistleblower'], a:'David Grusch is a former NGA officer who testified to Congress in July 2023 that the U.S. recovers non-human craft and biologics, based on secondhand interviews. He states he has not personally seen a craft. See the Government & Whistleblowers tab -- marked Testimony, which is a different status than Official or Reported.' },
+  { keys:['nimitz','tic tac'], a:'The 2004 USS Nimitz "Tic Tac" incident: Navy pilots and radar operators tracked an unusual object off California. Radar and FLIR footage exist. Status: Reported, officially unresolved.' },
+  { keys:['drake','equation'], a:'The Drake Equation estimates how many currently-detectable civilizations exist in the Milky Way. Try the sliders on The Science tab -- there is no single correct answer, that is the whole point of the equation.' },
+  { keys:['fermi','paradox'], a:'The Fermi Paradox asks: if the universe should produce intelligent life often, why haven\'t we found clear evidence of it? See The Science tab for the leading proposed resolutions.' },
+  { keys:['seti'], a:'SETI is the Search for Extraterrestrial Intelligence -- radio and optical surveys looking for artificial signals, running since Project Ozma in 1960. See The Science tab for the timeline.' },
+  { keys:['tyson','neil degrasse'], a:'Neil deGrasse Tyson is featured on the Commentary tab -- his public position holds government-disclosure claims to the same evidentiary bar as any extraordinary scientific claim, while affirming the statistical case for life existing somewhere in the universe.' },
+  { keys:['status','legend','official','disputed','unproven'], a:'Every entry on this page carries one status: Official (agency\'s own finding), Testimony (sworn but unverified), Reported (witnessed, unresolved), Disputed (official explanation exists but contested), Unproven, or Commentary (opinion). Never merged together.' },
+  { keys:['hub','avidaa hub'], a:'AVIDAA HUB is the main index for the whole AVIDAA ecosystem: avidaa1.github.io' },
+  { keys:['cosmos','avidaa cosmos'], a:'AVIDAA COSMOS is a full real-astronomy 3D solar system and sky dome, including a validated Sun/Earth/Moon eclipse system: avidaa1.github.io/cosmos' },
+  { keys:['who are you','what are you'], a:'I\'m the offline ANOMALY Desk assistant -- pure JavaScript, no API, no network calls. I only know what\'s written on this page.' },
+  { keys:['thanks','thank you'], a:'Any time.' },
+  { keys:['help'], a:'Ask me about AARO, Roswell, Grusch, the Drake Equation, SETI, or any status label -- I answer from this page\'s own content.' },
+  { keys:['blue book','project blue book'], a:'Project Blue Book (1952-1969) was the U.S. Air Force\'s systematic UFO investigation program, led initially by Capt. Edward Ruppelt (who coined "UFO"). Closed after the Condon Report -- 12,618 sightings catalogued, 701 left unidentified. See the Timeline tab.' },
+  { keys:['hill','betty','barney'], a:'Betty and Barney Hill (1961) reported the first widely publicized alien abduction claim in the U.S. -- missing time on a New Hampshire drive, later described under hypnosis. Status: Testimony. See the Contact & Folklore tab.' },
+  { keys:['walton','travis'], a:'Travis Walton (1975) reportedly disappeared for 5 days in Arizona after being struck by light from a hovering object. Basis for the film "Fire in the Sky." Status: Testimony. See the Contact & Folklore tab.' },
+  { keys:['rendlesham'], a:'Rendlesham Forest (Dec 1980) -- multiple USAF security personnel in England reported an unusual object over 2-3 nights, sometimes called "Britain\'s Roswell." Status: Reported. See the Timeline or Sightings Archive tab.' },
+  { keys:['malmstrom'], a:'Malmstrom AFB (March 1967) -- former officer Robert Salas reported 10 nuclear missiles going inoperable as a glowing object was sighted nearby. Status: Testimony. See the Timeline tab.' },
+  { keys:['species','grey','reptilian','nordic','mantis'], a:'The "Grey," "Nordic," "Reptilian," and "Mantis" archetypes are a folklore taxonomy, not validated biology. See the Contact & Folklore tab for each one\'s described appearance, why weight is never given a number (no specimen has ever existed to weigh), whether any government report has ever named them (none have), and an evidence score -- all four score zero verified specimens, regardless of how often they get depicted.' },
+  { keys:['dimension','dimensions'], a:'Real physics (string theory, Kaluza-Klein) does involve extra compactified dimensions -- but that\'s unrelated to claims about "interdimensional beings" or contact from other planes of consciousness, which have no basis in that physics. See The Science tab for both, kept clearly separate.' },
+  { keys:['contact','abduction'], a:'The Contact & Folklore tab covers personal first-hand claims of direct contact/abduction (Hill, Walton, Villas Boas, Adamski, Strieber) -- separate from the Government & Whistleblowers tab, which is about an alleged program, not personal contact.' },
+  { keys:['foia','freedom of information'], a:'The FOIA Sources tab has real, live links to the CIA, FBI, and NSA\'s own declassified UFO document collections, plus the National Archives\' Blue Book records and The Black Vault\'s privately-maintained FOIA archive. All checked live before publishing.' },
+  { keys:['mufon'], a:'MUFON (Mutual UFO Network), founded 1969, is the oldest and largest civilian UFO investigation network -- volunteer-run, ~4,000+ members. See the Groups & Orgs tab.' },
+  { keys:['ttsa','to the stars'], a:'To The Stars Academy (TTSA), founded 2017 by Tom DeLonge, Jim Semivan, and Hal Puthoff, is a commercial public benefit corporation notable for the 2017 AATIP disclosure -- its later claims about acquired materials have drawn sustained criticism, including from within UAP research itself. See the Groups & Orgs tab.' },
+  { keys:['cufos','hynek'], a:'CUFOS (J. Allen Hynek Center for UFO Studies), founded 1973 by Project Blue Book\'s own scientific consultant, stresses case-file rigor over public advocacy. See the Groups & Orgs tab.' },
+  { keys:['nuforc'], a:'NUFORC (National UFO Reporting Center), founded 1974, is a public sighting-report hotline and database with roughly 170,000 reports catalogued. See the Groups & Orgs tab.' },
+  { keys:['galileo project'], a:'The Galileo Project (Harvard, founded 2021 by Avi Loeb) builds dedicated instruments to search for physical evidence of extraterrestrial technology. See the Groups & Orgs and Commentary tabs.' },
+  { keys:['bye','goodbye'], a:'Signing off.' }
+];
+function levenshtein(a,b){
+  var m=a.length,n=b.length,d=[];
+  for(var i=0;i<=m;i++) d[i]=[i];
+  for(var j=0;j<=n;j++) d[0][j]=j;
+  for(i=1;i<=m;i++) for(j=1;j<=n;j++){
+    d[i][j] = a[i-1]===b[j-1] ? d[i-1][j-1] : Math.min(d[i-1][j-1]+1,d[i][j-1]+1,d[i-1][j]+1);
+  }
+  return d[m][n];
+}
+function fuzzyIncludes(text, key){
+  if (text.indexOf(key)!==-1) return true;
+  if (key.length < 5) return false;
+  var words = text.split(/\s+/);
+  for (var i=0;i<words.length;i++){
+    if (words[i].length>=5 && levenshtein(words[i], key) <= 1) return true;
+  }
+  return false;
+}
+function kbLookup(msg){
+  var low = msg.toLowerCase();
+  var best = null, bestScore = 0;
+  KB.forEach(function(entry){
+    entry.keys.forEach(function(k){
+      if (fuzzyIncludes(low, k) && k.length > bestScore){ best = entry; bestScore = k.length; }
+    });
+  });
+  return best;
+}
+
+/* ============ TWO-TIER ENCRYPTED RABBIT HOLE ============
+   AES-256-GCM, PBKDF2-SHA256 100k iterations, Web Crypto only -- no library.
+   Blob format: noise.<salt_b64>.<iv_b64>.<ciphertext_b64>.noise (5 dot-parts).
+   The reveal URL is never present in plaintext anywhere in this file. */
+var TIER1_BLOB = 'noise.sX1qvq9m9GoSavU35g0VTA==.WNyKfbm+XdrYKEbV.8Wm6l0OfGGLLG5b44oiLZY0gauo0+aoStasrlHFqzYaH/ci37iO1206/A3yZiBLF.noise';
+var TIER2_BLOB = 'noise.WbiB+JU/d5jJ4F3YE4uHeQ==.VirYva4/mGy2kzCc.KTCu1wt0Te9iKSyMsH3YVq3+pWnpY9wYQW//TFn6Pb+uuUZeZJSx80d9gP1RoBHFwwjG35idJb/5Ig==.noise';
+
+function normalizeKey(s){ return s.toLowerCase().trim().replace(/\s+/g,' '); }
+function b64ToBytes(b64){ var bin = atob(b64); var arr = new Uint8Array(bin.length); for (var i=0;i<bin.length;i++) arr[i]=bin.charCodeAt(i); return arr; }
+async function decryptBlob(passphrase, blob){
+  var parts = blob.split('.');
+  var salt = b64ToBytes(parts[1]), iv = b64ToBytes(parts[2]), ct = b64ToBytes(parts[3]);
+  var enc = new TextEncoder();
+  var baseKey = await crypto.subtle.importKey('raw', enc.encode(normalizeKey(passphrase)), 'PBKDF2', false, ['deriveKey']);
+  var key = await crypto.subtle.deriveKey(
+    { name:'PBKDF2', salt:salt, iterations:100000, hash:'SHA-256' },
+    baseKey, { name:'AES-GCM', length:256 }, false, ['decrypt']
+  );
+  var pt = await crypto.subtle.decrypt({ name:'AES-GCM', iv:iv }, key, ct);
+  return new TextDecoder().decode(pt);
+}
+
+var quest = { tier:0, gateIdx:0 };
+var TIER1_GATES = [
+  { q:'Gate 1 of 3: what 4-letter acronym is the U.S. government\'s current UAP office? (check the Timeline or Briefing tab)', a:'aaro' },
+  { q:'Gate 2 of 3: what year was that office established? (same entry on the Timeline tab)', a:'2022' },
+  { q:'Gate 3 of 3: what 3-letter term officially replaced "UFO" in U.S. government use? (see the Briefing tab)', a:'uap' }
+];
+var TIER2_RIDDLES = [
+  { q:'Riddle 1 of 3: per the page footer, what year is AVIDAA\'s foundation stated as?', a:'2025' },
+  { q:'Riddle 2 of 3: per the page footer, besides humans, what else is this built for?', a:'ai' },
+  { q:'Riddle 3 of 3: per the page footer, what kind of knowledge does this aim to make?', a:'clear' }
+];
+
+function checkQuestInput(msg){
+  var low = msg.toLowerCase().trim();
+  if (['stop','quit','cancel','i resign','nevermind','never mind'].indexOf(low) !== -1 && quest.tier){
+    var t = quest.tier; quest.tier = 0; quest.gateIdx = 0;
+    addMsg('bot', 'Stepping back. Say "rabbit hole" or "the flame" any time to try again.');
+    return { handled:true };
+  }
+  if (quest.tier === 1){
+    var gate = TIER1_GATES[quest.gateIdx];
+    if (low.indexOf(gate.a) !== -1){
+      quest.gateIdx++;
+      if (quest.gateIdx >= TIER1_GATES.length){
+        decryptBlob('noise 2025', TIER1_BLOB).then(function(url){
+          addMsg('bot', '<span class="cb-rainbow">All 3 gates cleared. ' + escHtml(url) + '</span>');
+        }).catch(function(){ addMsg('bot', 'Decryption failed -- try the quest again.'); });
+        quest.tier = 0; quest.gateIdx = 0;
+      } else {
+        addMsg('bot', 'Correct. ' + TIER1_GATES[quest.gateIdx].q);
+      }
+      return { handled:true };
+    }
+    addMsg('bot', 'Not quite. ' + gate.q);
+    return { handled:true };
+  }
+  if (quest.tier === 2){
+    var riddle = TIER2_RIDDLES[quest.gateIdx];
+    if (low.indexOf(riddle.a) !== -1){
+      quest.gateIdx++;
+      if (quest.gateIdx >= TIER2_RIDDLES.length){
+        decryptBlob('2025 ai clear', TIER2_BLOB).then(function(url){
+          addMsg('bot', '<span class="cb-rainbow">All 3 riddles solved. ' + escHtml(url) + '</span>');
+        }).catch(function(){ addMsg('bot', 'Decryption failed -- try the quest again.'); });
+        quest.tier = 0; quest.gateIdx = 0;
+      } else {
+        addMsg('bot', 'Correct. ' + TIER2_RIDDLES[quest.gateIdx].q);
+      }
+      return { handled:true };
+    }
+    addMsg('bot', 'Not quite. ' + riddle.q);
+    return { handled:true };
+  }
+  if (/\brabbit\b|\bhole\b|\bsecret\b|\bquest\b/.test(low)){
+    quest.tier = 1; quest.gateIdx = 0;
+    addMsg('bot', 'A quest begins. ' + TIER1_GATES[0].q);
+    return { handled:true };
+  }
+  if (/the flame|go deeper/.test(low)){
+    quest.tier = 2; quest.gateIdx = 0;
+    addMsg('bot', 'Deeper still. ' + TIER2_RIDDLES[0].q);
+    return { handled:true };
+  }
+  return { handled:false };
+}
+
+function addMsg(who, html){
+  var log = document.getElementById('anom-chat-log');
+  var div = document.createElement('div');
+  div.className = who === 'user' ? 'msg-user' : 'msg-bot';
+  div.innerHTML = html;
+  log.appendChild(div);
+  log.scrollTop = log.scrollHeight;
+}
+function chatSend(){
+  var input = document.getElementById('anom-chat-input');
+  var msg = input.value.trim();
+  if (!msg) return;
+  addMsg('user', escHtml(msg));
+  input.value = '';
+  var res = checkQuestInput(msg);
+  if (res.handled) return;
+  var hit = kbLookup(msg);
+  addMsg('bot', hit ? escHtml(hit.a) : 'I don\'t have that in this page\'s knowledge base yet -- try asking about AARO, Roswell, Grusch, the Drake Equation, or a status label.');
+}
+document.getElementById('anom-chat-send').addEventListener('click', chatSend);
+document.getElementById('anom-chat-input').addEventListener('keydown', function(e){ if (e.key==='Enter') chatSend(); });
+document.getElementById('anom-chat-toggle').addEventListener('click', function(){
+  document.getElementById('anom-chat-panel').classList.toggle('show');
+});
+addMsg('bot', 'ANOMALY Desk online. Ask about any case, AARO, or the science on this page.');
+
+
+/* ===== replaced: badge text ===== */
+ (plus the chatbot, rabbit hole, and ambient canvas below)
+Archived (removed from the live page) by the chatbot audit 20261125_1505.
+Original file: index.html
+
+/* quickAsk onclick attributes stripped from page chips: 0 bytes */
+Archived (removed from the live page) by the chatbot audit 20261125_1505.
+Original file: index.html
+
+/* css */
+#anom-chat-send{background:none; border:none; color:var(--accent); padding:0 12px; cursor:pointer; font-weight:600;}
+
+/* css */
+#anom-chat-input{flex:1; background:transparent; border:none; color:var(--ink); padding:10px; font-size:.85rem; font-family:'IBM Plex Mono',monospace;}
+
+/* css */
+#anom-chat-input-row{display:flex; border-top:1px solid var(--line);}
+
+/* css */
+#anom-chat-log .msg-bot{color:var(--ink); margin:6px 0;}
+
+/* css */
+#anom-chat-log .msg-user{color:var(--ink-dim); margin:6px 0; text-align:right;}
+
+/* css */
+#anom-chat-log{flex:1; overflow-y:auto; padding:10px; font-size:.82rem; line-height:1.5; color:var(--ink);}
+
+/* css */
+#anom-chat-head{padding:10px 12px; border-bottom:2px solid var(--ink); font-family:'Special Elite',monospace; color:var(--ink); font-size:.85rem;}
+
+/* css */
+#anom-chat-panel.show{display:flex;}
+
+/* css */
+#anom-chat-panel{
+  position:fixed; bottom:80px; right:16px; z-index:60; width:min(340px,calc(100vw - 32px)); height:min(440px,64vh);
+  background:var(--paper); border:1px solid var(--paper-shadow); border-radius:2px; box-shadow:0 10px 30px rgba(0,0,0,.5);
+  display:none; flex-direction:column; overflow:hidden;
+}
+
+/* css */
+#anom-chat-toggle{
+  position:fixed; bottom:16px; right:16px; z-index:60; width:54px; height:54px; border-radius:50%;
+  background:radial-gradient(circle at 30% 30%, #4a8f7f, #16241e); border:2px solid rgba(230,223,196,.4); cursor:pointer;
+  box-shadow:0 4px 14px rgba(0,0,0,.5); font-size:1.4rem; color:#e6dfc4;
+}
